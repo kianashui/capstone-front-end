@@ -1,18 +1,31 @@
 /* .App {
   text-align: center;
+}*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.home, .trips, .account-settings, .more {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 90vh;
+  align-items: top; /*vertical alignment*/
+  margin: 25px 25px 0 25px; /*margin: top right bottom left*/
+  justify-content: left; /* horizontal alignment */
+  font-size: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
-} */
+.trips h1 {
+  color: red;
+}
+
+footer {
+  margin: 20px;
+}
+
+.home {
+  background-color: purple;
+}
