@@ -2,11 +2,17 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import * as IoIcons from "react-icons/io";
 import Trip from "../components/Trip";
+import TripForm from "../components/TripForm";
 import "./Trips.css"
 
 function Trips() {
+  const [tripFormActive, setTripFormActive] = useState(false);
 	const [tripList, setTripList] = useState([]);
 	const URL = "https://capstone-trip-planner.herokuapp.com/trips";
+
+  const showTripForm = () => {
+    setTripFormActive(!tripFormActive);
+  };
 
 	const getTrips = () => {
 		axios.get(URL).then((response) => {
@@ -22,6 +28,21 @@ function Trips() {
 			setTripList(newTrips);
 		}).catch((err) => {console.log(err);});
 	}
+
+  const addTrip = (tripInfo: any) => {
+    console.log("add trip");
+    console.log(tripInfo);
+    axios
+      .post(URL, tripInfo)
+      .then((response) => {
+        console.log(response);
+        getTrips();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    getTrips();
+  };
 
 	const deleteTrip = (tripInfo: any) => {
 		console.log("delete trip");
@@ -48,8 +69,13 @@ function Trips() {
 	return (
 		<div className="trips">
 			<h1>Trips</h1>
-			<IoIcons.IoMdAddCircle className="trip-add-button"/>
+			<IoIcons.IoMdAddCircle className="trip-add-button" onClick={showTripForm}/>
 			<ul>{tripComponents}</ul>
+      <TripForm
+        addTripCallback={addTrip}
+        showTripFormCallback={showTripForm}
+        tripFormActive={tripFormActive}
+      ></TripForm>
 		</div>
 	);
 }
