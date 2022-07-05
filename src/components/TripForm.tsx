@@ -11,6 +11,7 @@ const defaultTripForm = {
 function TripForm(props: any) {
 
   const [tripFormData, setTripFormData] = useState(defaultTripForm);
+  const [disableSubmit, setDisableSubmit] = useState(true);
 
   const onFormChange = (event: any) => {
     const stateName: any = event.target.name;
@@ -19,6 +20,11 @@ function TripForm(props: any) {
     const newFormData: any = { ...tripFormData };
     newFormData[stateName] = inputValue;
     setTripFormData(newFormData);
+    if (newFormData.name === "" || newFormData.start_date === "" || newFormData.end_date === "") {
+      setDisableSubmit(true);
+    } else {
+      setDisableSubmit(false);
+    }
   };
 
   const handleSubmit = (event: any) => {
@@ -73,7 +79,7 @@ function TripForm(props: any) {
         value={tripFormData.end_date}
         onChange={onFormChange}
       ></input>
-      <input type="submit" value="Add Trip"></input>
+      <input type="submit" value="Add Trip" disabled={disableSubmit}></input>
     </form>
   );
 }
