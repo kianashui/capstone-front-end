@@ -44,8 +44,14 @@ function Trips() {
     getTrips();
   };
 
-	const deleteTrip = (tripInfo: any) => {
-		console.log("delete trip");
+	const deleteTrip = (trip_id: string) => {
+    axios
+      .delete(`${URL}/${trip_id}`)
+      .then((response) => {
+        console.log(response);
+        getTrips();
+      })
+      .catch((err) => {console.log(err)})
 	}
 
 	const tripComponents = tripList.map((trip: any) => {
