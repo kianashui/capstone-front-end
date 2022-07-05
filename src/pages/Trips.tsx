@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import * as IoIcons from "react-icons/io";
 import Trip from "../components/Trip";
+import "./Trips.css"
 
 function Trips() {
 	const [tripList, setTripList] = useState([]);
