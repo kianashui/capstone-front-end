@@ -8,10 +8,10 @@
 }
 
 #trip-summary-components {
-    /* left: 0; */
     background-color: antiquewhite;
     padding: 20px;
     max-width: 500px;
+    z-index: 0;
 }
 
 
