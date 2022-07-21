@@ -102,7 +102,8 @@ function Trips() {
 	return (
 		<div className="trips">
 			<h1>Trips</h1>
-			<IoIcons.IoMdAddCircle className="new-trip-button" onClick={showTripForm}/>
+			{/* <IoIcons.IoMdAddCircle className="new-trip-button" onClick={showTripForm}/> */}
+      <IoIcons.IoMdAddCircle className="new-trip-button" onClick={showTripForm}/>
       <TripForm
         addTripCallback={addTrip}
         showTripFormCallback={showTripForm}
