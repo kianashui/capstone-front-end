@@ -81,24 +81,6 @@ function Trips() {
     sortTripSummaries(2);
   }
 
-
-  // const tripSummaryComponents = (tripList: Array<any>) => {
-  //   return (tripList.map((trip: any) => {
-  //     return (
-  //       <Link to={`/trips/${trip.trip_id}`} key={trip.trip_id}>
-  //         <li className="trip-summary-item" key={trip.trip_id}>
-  //           <TripSummary
-  //             id={trip.trip_id}
-  //             name={trip.name}
-  //             start_date={trip.start_date}
-  //             end_date={trip.end_date}
-  //             deleteTripCallback={deleteTrip}
-  //           />
-  //         </li>
-  //       </Link>
-  //     );
-  //   }));
-  // }
 	const tripSummaryComponents = tripList.map((trip: any) => {
 		return (
       <Link to={`/trips/${trip.trip_id}`} key={trip.trip_id}>
@@ -116,7 +98,6 @@ function Trips() {
 	});
 
 	useEffect(getTrips, [])
-  // useEffect(tripSummaryComponents, [tripList])
 
 	return (
 		<div className="trips">
