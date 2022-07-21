@@ -79,7 +79,7 @@ function TripForm(props: any) {
         value={tripFormData.end_date}
         onChange={onFormChange}
       ></input>
-      <input type="submit" value="Add Trip" disabled={disableSubmit}></input>
+      <input id="trip-form-submit-button" type="submit" value="Add Trip" disabled={disableSubmit}></input>
     </form>
   );
 }

@@ -1,7 +1,3 @@
-/* .App {
-  text-align: center;
-}*/
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,11 +15,18 @@
 }
 
 .trips h1 {
-  color: red;
+  color: #F391A0;
+  /* color: #706F6F; */
 }
 
 footer {
-  margin: 20px;
+  /* margin: 20px; */
+  border-top: 1px solid #c5c5c5;
+  position: sticky;
+  bottom: 0;
+  padding: 10px;
+  background-color: #FFFFFF;
+  /* z-index: 999; */
 }
 
 .home {

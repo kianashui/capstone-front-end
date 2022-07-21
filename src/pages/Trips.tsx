@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import * as IoIcons from "react-icons/io";
-import Trip from "../components/Trip";
+import TripSummary from "../components/TripSummary";
 import TripForm from "../components/TripForm";
 import "./Trips.css"
+import { Link } from "react-router-dom";
 
 function Trips() {
   const [tripFormActive, setTripFormActive] = useState(false);
@@ -54,19 +55,19 @@ function Trips() {
       .catch((err) => {console.log(err)})
 	}
 
-	const tripComponents = tripList.map((trip: any) => {
+	const tripSummaryComponents = tripList.map((trip: any) => {
 		return (
-			<li className="trip-item">
-				<Trip
-					key={trip.trip_id}
-					id={trip.trip_id}
-					name={trip.name}
-					start_date={trip.start_date}
-					end_date={trip.end_date}
-					itinerary_entries={trip.itinerary_entries}
-					deleteTripCallback={deleteTrip}
-				/>
-			</li>
+      <Link to={`/trips/${trip.trip_id}`} key={trip.trip_id}>
+        <li className="trip-summary-item" key={trip.trip_id}>
+          <TripSummary
+            id={trip.trip_id}
+            name={trip.name}
+            start_date={trip.start_date}
+            end_date={trip.end_date}
+            deleteTripCallback={deleteTrip}
+          />
+        </li>
+      </Link>
 		);
 	});
 
@@ -75,13 +76,13 @@ function Trips() {
 	return (
 		<div className="trips">
 			<h1>Trips</h1>
-			<IoIcons.IoMdAddCircle className="trip-add-button" onClick={showTripForm}/>
-			<ul>{tripComponents}</ul>
+			<IoIcons.IoMdAddCircle className="new-trip-button" onClick={showTripForm}/>
       <TripForm
         addTripCallback={addTrip}
         showTripFormCallback={showTripForm}
         tripFormActive={tripFormActive}
       ></TripForm>
+			<ul id="trip-summary-components">{tripSummaryComponents}</ul>
 		</div>
 	);
 }

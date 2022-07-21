@@ -1,42 +1,28 @@
+.trips {
+    display: block;
+}
 
-.trip-item {
-    list-style: none;
+#trip-summary-components::before {
+    /* content: "\a"; */
+    white-space: break-spaces;
+}
+
+#trip-summary-components {
+    /* left: 0; */
+    background-color: antiquewhite;
+    padding: 20px;
+    max-width: 500px;
 }
 
 
-.delete-button, .trip-add-button, .close-form-button {
+.new-trip-button {
     padding: 5px;
     border-radius: 30px;
     cursor: pointer;
     font-size: 3rem;
+    color: #000000;
 }
 
-.delete-button:hover, .trip-add-button:hover, .close-form-button:hover {
-    color: gray
+.new-trip-button:hover {
+    color: #706F6F
 }
-
-.close-form-button {
-    margin: 0 0 0 auto;
-    display: block;
-    /* vertical-align: text-top; */
-    /* margin-right: 0px */
-    /* figure out how to align this button on the right */
-}
-
-/* .trip-form.active {
-    visibility: visible;
-}
-
-.trip-form {
-    background-color: aliceblue;
-    padding: 50px;
-    border-radius: 20px;
-    border: 5px dotted black;
-    margin: 50px;
-    position: absolute;
-    top: 50px;
-    bottom: 20px;
-    right: 50px;
-    left: 50px;
-    visibility: hidden;
-} */
