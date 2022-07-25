@@ -63,7 +63,6 @@ function Trips() {
     } else if (tripOrder === 2) {
       tripList.sort((a: any, b: any) => a.name.localeCompare(b.name));
     }
-    console.log(tripList);
   }
 
   const sortTripsByUpcoming = () => {
