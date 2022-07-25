@@ -110,9 +110,9 @@ function Trips() {
         tripFormActive={tripFormActive}
       ></TripForm>
       <div className="trip-list">
-        <FaIcons.FaSortAlphaDown className="sort-button" onClick={sortTripsByName}/>
-        <FaIcons.FaSortAmountDownAlt className="sort-button" onClick={sortTripsByUpcoming}/>
-        <FaIcons.FaSortAmountDown className="sort-button" onClick={sortTripsByFurthestOut}/>
+        <FaIcons.FaSortAlphaDown className="trip-sort-button" onClick={sortTripsByName}/>
+        <FaIcons.FaSortAmountDownAlt className="trip-sort-button" onClick={sortTripsByUpcoming}/>
+        <FaIcons.FaSortAmountDown className="trip-sort-button" onClick={sortTripsByFurthestOut}/>
         <ul id="trip-summary-components">{tripSummaryComponents}</ul>
       </div>
       <Outlet/>
