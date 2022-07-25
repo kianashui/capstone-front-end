@@ -2,19 +2,6 @@
     display: block;
 }
 
-#trip-summary-components::before {
-    /* content: "\a"; */
-    white-space: break-spaces;
-}
-
-#trip-summary-components {
-    background-color: antiquewhite;
-    padding: 20px;
-    padding-bottom: 50px;
-    max-width: 500px;
-    z-index: 0;
-}
-
 .new-trip-button {
     padding: 5px;
     border-radius: 30px;
@@ -24,5 +11,37 @@
 }
 
 .new-trip-button:hover {
-    color: #706F6F
+    color: #706F6F;
+}
+
+#trip-summary-components::before {
+    /* content: "\a"; */
+    white-space: break-spaces;
+}
+
+.trip-list {
+    background-color: red;
+    padding: 20px;
+    padding-bottom: 50px;
+    max-width: 500px;
+    z-index: 0;
+}
+
+#trip-summary-components {
+    background-color: antiquewhite;
+    padding: 20px;
+    padding-bottom: 10px;
+    max-width: 500px;
+    z-index: 0;
+}
+
+.sort-button {
+    padding: 5px;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #000000;
+}
+
+.trip-sort-button:hover {
+    color: #706F6F;
 }

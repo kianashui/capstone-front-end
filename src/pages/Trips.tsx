@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import * as IoIcons from "react-icons/io";
+import * as FaIcons from "react-icons/fa";
 import TripSummary from "../components/TripSummary";
 import TripForm from "../components/TripForm";
 import "./Trips.css"
@@ -58,8 +59,8 @@ function Trips() {
   const sortTripSummaries = (tripOrder: number) => {
     if (tripOrder === 0) {
       tripList.sort((a: any, b: any) => a.start_date.localeCompare(b.start_date));
-    // } else if (tripOrder === 1) {
-    //   tripList.sort((a: any, b: any) => b.start_date.localeCompare(a.start_date));
+    } else if (tripOrder === 1) {
+      tripList.sort((a: any, b: any) => b.start_date.localeCompare(a.start_date));
     } else if (tripOrder === 2) {
       tripList.sort((a: any, b: any) => a.name.localeCompare(b.name));
     }
@@ -70,10 +71,10 @@ function Trips() {
     sortTripSummaries(0);
   }
 
-  // const sortTripsByOldest = () => {
-  //   setTripOrder(1);
-  //   sortTripSummaries(1);
-  // }
+  const sortTripsByFurthestOut = () => {
+    setTripOrder(1);
+    sortTripSummaries(1);
+  }
 
   const sortTripsByName = () => {
     setTripOrder(2);
@@ -108,10 +109,12 @@ function Trips() {
         showTripFormCallback={showTripForm}
         tripFormActive={tripFormActive}
       ></TripForm>
-      <button onClick={sortTripsByUpcoming}>Sort by Upcoming</button>
-      {/* <button onClick={sortTripsByOldest}>Sort by Oldest</button> */}
-      <button onClick={sortTripsByName}>Sort by Trip Name</button>
-			<ul id="trip-summary-components">{tripSummaryComponents}</ul>
+      <div className="trip-list">
+        <FaIcons.FaSortAlphaDown className="sort-button" onClick={sortTripsByName}/>
+        <FaIcons.FaSortAmountDownAlt className="sort-button" onClick={sortTripsByUpcoming}/>
+        <FaIcons.FaSortAmountDown className="sort-button" onClick={sortTripsByFurthestOut}/>
+        <ul id="trip-summary-components">{tripSummaryComponents}</ul>
+      </div>
       <Outlet/>
 		</div>
 	);
