@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Trips from "./pages/Trips";
-import Trip from './components/TripSummary';
+import Trip from "./pages/Trip";
 import AccountSettings from "./pages/AccountSettings";
 import More from "./pages/More";
 
@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/trips" element={<Trips />} />
-              <Route path=":tripId" element={<Trip/>} />
+            <Route path="/trips/:tripId" element={<Trip/>} />
             <Route path="/settings" element={<AccountSettings />} />
             <Route path="/more" element={<More />} />
           </Routes>

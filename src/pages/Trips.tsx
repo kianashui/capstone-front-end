@@ -4,7 +4,7 @@ import * as IoIcons from "react-icons/io";
 import TripSummary from "../components/TripSummary";
 import TripForm from "../components/TripForm";
 import "./Trips.css"
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function Trips() {
   const [tripFormActive, setTripFormActive] = useState(false);
@@ -113,6 +113,7 @@ function Trips() {
       {/* <button onClick={sortTripsByOldest}>Sort by Oldest</button> */}
       <button onClick={sortTripsByName}>Sort by Trip Name</button>
 			<ul id="trip-summary-components">{tripSummaryComponents}</ul>
+      <Outlet/>
 		</div>
 	);
 }

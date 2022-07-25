@@ -1,6 +1,5 @@
 .navbar {
     background-color: #61dafb;
-    /* color: black; */
     font-size: 2rem;
     height: 60px;
     display: flex;
@@ -17,8 +16,6 @@
 
 .nav-menu {
     background-color: #61dafb;
-    /* background-color: #09c7fb; */
-    /* background-color: darkblue; */
     width: 250px;
     height: 100vh;
     display: flex;

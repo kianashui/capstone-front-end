@@ -1,14 +1,18 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React, { useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import "./TripForm.css";
 
-const defaultTripForm = {
-  name: "",
-  start_date: "",
-  end_date: "",
-};
+
 
 function TripForm(props: any) {
+  const [defaultDate, setDefaultDate] = useState(new Date())
+
+  const defaultTripForm = {
+    name: "",
+    start_date: defaultDate,
+    end_date: defaultDate,
+  };
 
   const [tripFormData, setTripFormData] = useState(defaultTripForm);
   const [disableSubmit, setDisableSubmit] = useState(true);
@@ -20,7 +24,7 @@ function TripForm(props: any) {
     const newFormData: any = { ...tripFormData };
     newFormData[stateName] = inputValue;
     setTripFormData(newFormData);
-    if (newFormData.name === "" || newFormData.start_date === "" || newFormData.end_date === "") {
+    if (newFormData.name === "" || newFormData.start_date === defaultDate || newFormData.end_date === defaultDate) {
       setDisableSubmit(true);
     } else {
       setDisableSubmit(false);
@@ -62,21 +66,21 @@ function TripForm(props: any) {
       <br />
       <label htmlFor="start_date">Trip Start Date</label>
       <input
-        // type="date"
-        type="text"
+        type="date"
+        // type="text"
         name="start_date"
         placeholder="Start Date"
-        value={tripFormData.start_date}
+        value={tripFormData.start_date.toString()}
         onChange={onFormChange}
       ></input>
       <br />
       <label htmlFor="end_date">Trip End Date</label>
       <input
-        // type="date"
-        type="text"
+        type="date"
+        // type="text"
         name="end_date"
         placeholder="End Date"
-        value={tripFormData.end_date}
+        value={tripFormData.end_date.toString()}
         onChange={onFormChange}
       ></input>
       <input id="trip-form-submit-button" type="submit" value="Add Trip" disabled={disableSubmit}></input>

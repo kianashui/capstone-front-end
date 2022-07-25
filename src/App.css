@@ -4,12 +4,16 @@
   padding: 0;
   font-family: 'Lato', sans-serif;
 }
+/* 
+main {
+  margin-bottom: 20px;
+} */
 
 .home, .trips, .account-settings, .more {
   display: flex;
   height: 90vh;
   align-items: top; /*vertical alignment*/
-  margin: 25px 25px 0 25px; /*margin: top right bottom left*/
+  margin: 25px 25px 40px 25px; /*margin: top right bottom left*/
   justify-content: left; /* horizontal alignment */
   font-size: 1.5rem;
 }
@@ -22,7 +26,9 @@
 footer {
   /* margin: 20px; */
   border-top: 1px solid #c5c5c5;
-  position: sticky;
+  position: fixed;
+  width: 100%;
+  margin-top: 20px;
   bottom: 0;
   padding: 10px;
   background-color: #FFFFFF;

@@ -10,10 +10,10 @@
 #trip-summary-components {
     background-color: antiquewhite;
     padding: 20px;
+    padding-bottom: 50px;
     max-width: 500px;
     z-index: 0;
 }
-
 
 .new-trip-button {
     padding: 5px;
