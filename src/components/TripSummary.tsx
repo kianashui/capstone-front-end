@@ -1,5 +1,4 @@
-import { AnyRecord } from "dns";
-import React from "react";
+// import React from "react";
 import * as RiIcons from "react-icons/ri";
 import "./TripSummary.css";
 

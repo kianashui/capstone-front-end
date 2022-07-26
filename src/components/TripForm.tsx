@@ -1,5 +1,4 @@
-import { type } from "@testing-library/user-event/dist/type";
-import React, { useState } from "react";
+import { useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import "./TripForm.css";
 
