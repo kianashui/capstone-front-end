@@ -2,7 +2,6 @@ import {useParams} from "react-router-dom";
 import {useState, useEffect} from 'react';
 import axios from "axios";
 
-
 function Trip() {
     const defaultTrip = {
         _id: "",

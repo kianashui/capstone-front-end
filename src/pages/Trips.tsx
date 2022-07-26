@@ -100,9 +100,8 @@ function Trips() {
 	useEffect(getTrips, [])
 
 	return (
-		<div className="trips">
-			<h1>Trips</h1>
-			{/* <IoIcons.IoMdAddCircle className="new-trip-button" onClick={showTripForm}/> */}
+    <div className="trips">
+      <h1>Trips</h1>
       <IoIcons.IoMdAddCircle className="new-trip-button" onClick={showTripForm}/>
       <TripForm
         addTripCallback={addTrip}
@@ -116,7 +115,7 @@ function Trips() {
         <ul id="trip-summary-components">{tripSummaryComponents}</ul>
       </div>
       <Outlet/>
-		</div>
+    </div>
 	);
 }
 
