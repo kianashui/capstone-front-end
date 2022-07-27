@@ -5,7 +5,7 @@ import "./TripForm.css";
 
 
 function TripForm(props: any) {
-  // set default form to empty form and disable submitting
+  // set default form to empty form and disable submit
   const defaultTripForm = {
     name: "",
     start_date: "",
