@@ -6,15 +6,22 @@ import TripSummary from "../components/TripSummary";
 import TripForm from "../components/TripForm";
 import "./Trips.css"
 import { Link, Outlet } from "react-router-dom";
+import DeleteTripForm from "../components/DeleteTripForm";
 
 function Trips() {
   const [tripFormActive, setTripFormActive] = useState(false);
+  const [deleteTripFormActive, setDeleteTripFormActive] = useState(false);
 	const [tripList, setTripList] = useState([]);
   const [tripOrder, setTripOrder] = useState(0);
+  const [selectedTripId, setSelectedTripId] = useState("");
 	const URL = "https://capstone-trip-planner.herokuapp.com/trips";
 
   const showTripForm = () => {
     setTripFormActive(!tripFormActive);
+  };
+
+  const showDeleteTripForm = () => {
+    setDeleteTripFormActive(!deleteTripFormActive);
   };
 
 	const getTrips = () => {
@@ -46,9 +53,14 @@ function Trips() {
       });
   };
 
-	const deleteTrip = (trip_id: string) => {
+  const deleteTripConfirm = (tripId: string) => {
+    showDeleteTripForm();
+    setSelectedTripId(tripId);
+  }
+
+	const deleteTrip = (tripId: string) => {
     axios
-      .delete(`${URL}/${trip_id}`)
+      .delete(`${URL}/${tripId}`)
       .then((response) => {
         console.log(response);
         getTrips();
@@ -90,7 +102,7 @@ function Trips() {
             name={trip.name}
             start_date={trip.start_date}
             end_date={trip.end_date}
-            deleteTripCallback={deleteTrip}
+            deleteTripConfirmCallback={deleteTripConfirm}
           />
         </li>
       </Link>
@@ -102,13 +114,13 @@ function Trips() {
 	return (
 		<div className="trips">
 			<h1>Trips</h1>
-			{/* <IoIcons.IoMdAddCircle className="new-trip-button" onClick={showTripForm}/> */}
-      <IoIcons.IoMdAddCircle className="new-trip-button" onClick={showTripForm}/>
+			<IoIcons.IoMdAddCircle className="new-trip-button" onClick={showTripForm}/>
       <TripForm
         addTripCallback={addTrip}
         showTripFormCallback={showTripForm}
         tripFormActive={tripFormActive}
       ></TripForm>
+      <DeleteTripForm deleteTripFormActive={deleteTripFormActive} deleteTripCallback={deleteTrip} showDeleteTripFormCallback={showDeleteTripForm} selectedTripId={selectedTripId}></DeleteTripForm>
       <div className="trip-list">
         <FaIcons.FaSortAlphaDown className="trip-sort-button" onClick={sortTripsByName}/>
         <FaIcons.FaSortAmountDownAlt className="trip-sort-button" onClick={sortTripsByUpcoming}/>
