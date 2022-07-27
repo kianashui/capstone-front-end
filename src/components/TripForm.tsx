@@ -5,8 +5,7 @@ import "./TripForm.css";
 
 
 function TripForm(props: any) {
-  const [defaultDate, setDefaultDate] = useState(new Date())
-
+  // set default form to empty form and disable submitting
   const defaultTripForm = {
     name: "",
     start_date: "",
@@ -17,12 +16,16 @@ function TripForm(props: any) {
   const [disableSubmit, setDisableSubmit] = useState(true);
 
   const onFormChange = (event: any) => {
+    // get info from form about changed data
     const stateName: any = event.target.name;
     const inputValue: any = event.target.value;
 
+    // replace form data
     const newFormData: any = { ...tripFormData };
     newFormData[stateName] = inputValue;
     setTripFormData(newFormData);
+
+    // if required fields have not been filled out, disable submitting
     if (newFormData.name === "" || !newFormData.start_date || !newFormData.end_date) {
       setDisableSubmit(true);
     } else {
@@ -65,7 +68,6 @@ function TripForm(props: any) {
       <label htmlFor="start_date">Trip Start Date</label>
       <input
         type="date"
-        // type="text"
         name="start_date"
         placeholder="Start Date"
         value={tripFormData.start_date.toString()}
@@ -75,7 +77,6 @@ function TripForm(props: any) {
       <label htmlFor="end_date">Trip End Date</label>
       <input
         type="date"
-        // type="text"
         name="end_date"
         placeholder="End Date"
         value={tripFormData.end_date.toString()}
