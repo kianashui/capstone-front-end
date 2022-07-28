@@ -2,8 +2,6 @@ import { useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import "./TripForm.css";
 
-
-
 function TripForm(props: any) {
   // set default form to empty form and disable submit
   const defaultTripForm = {
@@ -26,7 +24,12 @@ function TripForm(props: any) {
     setTripFormData(newFormData);
 
     // if required fields have not been filled out or start date is after end date, disable submitting
-    if (newFormData.name === "" || !newFormData.start_date || !newFormData.end_date || newFormData.start_date > newFormData.end_date) {
+    if (
+      newFormData.name === "" ||
+      !newFormData.start_date ||
+      !newFormData.end_date ||
+      newFormData.start_date > newFormData.end_date
+    ) {
       setDisableSubmit(true);
     } else {
       setDisableSubmit(false);
@@ -82,7 +85,12 @@ function TripForm(props: any) {
         value={tripFormData.end_date.toString()}
         onChange={onFormChange}
       ></input>
-      <input id="trip-form-submit-button" type="submit" value="Add Trip" disabled={disableSubmit}></input>
+      <input
+        id="trip-form-submit-button"
+        type="submit"
+        value="Add Trip"
+        disabled={disableSubmit}
+      ></input>
     </form>
   );
 }

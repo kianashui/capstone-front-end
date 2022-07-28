@@ -1,7 +1,6 @@
-import {useParams} from "react-router-dom";
-import {useState, useEffect} from 'react';
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
-
 
 function Trip() {
   const defaultTrip = {
@@ -9,18 +8,23 @@ function Trip() {
     name: "",
     start_date: "",
     end_date: "",
-    itinerary_entries: []
-  }
+    itinerary_entries: [],
+  };
   const [trip, setTrip] = useState(defaultTrip);
   const tripId = useParams().tripId;
   const URL = "https://capstone-trip-planner.herokuapp.com/trips";
-  
+
   const getOneTrip = () => {
-    axios.get(`${URL}/${tripId}`).then((response) => {
-      const tripData = response.data[0];
-      setTrip(tripData);
-    }).catch((err) => {console.log(err);});
-}
+    axios
+      .get(`${URL}/${tripId}`)
+      .then((response) => {
+        const tripData = response.data[0];
+        setTrip(tripData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(getOneTrip, [tripId]);
 
