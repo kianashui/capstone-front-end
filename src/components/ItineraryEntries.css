@@ -1,0 +1,24 @@
+.itinerary-entries {
+  display: block;
+}
+
+#itinerary-entry-components::before {
+  /* content: "\a"; */
+  white-space: break-spaces;
+}
+
+.itinerary-entry-list {
+  background-color: red;
+  padding: 20px;
+  padding-bottom: 50px;
+  max-width: 500px;
+  z-index: 0;
+}
+
+#itinerary-entry-components {
+  background-color: antiquewhite;
+  padding: 20px;
+  padding-bottom: 10px;
+  max-width: 500px;
+  z-index: 0;
+}

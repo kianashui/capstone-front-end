@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ItineraryEntries from "../components/ItineraryEntries";
 
 function Trip() {
   const defaultTrip = {
@@ -34,7 +35,8 @@ function Trip() {
       <h2>Trip Name: {trip.name} </h2>
       <h2>Start Date: {trip.start_date} </h2>
       <h2>End Date: {trip.end_date} </h2>
-      <h2>Itinerary Entries: {trip.itinerary_entries}</h2>
+      <h2>Itinerary Entries:</h2>
+      <ItineraryEntries trip_id={trip._id} />
     </div>
   );
 }
