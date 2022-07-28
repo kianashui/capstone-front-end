@@ -25,8 +25,8 @@ function TripForm(props: any) {
     newFormData[stateName] = inputValue;
     setTripFormData(newFormData);
 
-    // if required fields have not been filled out, disable submitting
-    if (newFormData.name === "" || !newFormData.start_date || !newFormData.end_date) {
+    // if required fields have not been filled out or start date is after end date, disable submitting
+    if (newFormData.name === "" || !newFormData.start_date || !newFormData.end_date || newFormData.start_date > newFormData.end_date) {
       setDisableSubmit(true);
     } else {
       setDisableSubmit(false);
