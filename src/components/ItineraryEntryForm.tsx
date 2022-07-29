@@ -31,7 +31,7 @@ function ItineraryEntryForm(props: any) {
     setitineraryEntryFormData(newFormData);
     console.log(newFormData);
 
-    // if required fields have not been filled out or start date is after end date, disable submitting
+    // if required fields have not been filled out or start time is after end time, disable submitting
     if (
       newFormData.name === "" ||
       !newFormData.start_time ||
@@ -110,6 +110,7 @@ function ItineraryEntryForm(props: any) {
         type="number"
         name="price"
         placeholder="Price"
+        step="0.01"
         value={itineraryEntryFormData.price}
         onChange={onFormChange}
       ></input>
