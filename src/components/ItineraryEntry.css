@@ -15,9 +15,9 @@
 }
 
 /* remove underline from trip-summary__name and trip-summary__dates*/
-a {
+/* a {
   text-decoration: none;
-}
+} */
 
 .itinerary-entry-item {
   list-style: none;
@@ -36,11 +36,6 @@ a {
 
 .itinerary-entry__name:hover {
   cursor: pointer;
-}
-
-.trip-summary__dates {
-  font-size: 1rem;
-  color: darkslategray;
 }
 
 .itinerary-entry__delete-button {

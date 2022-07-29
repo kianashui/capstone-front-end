@@ -36,6 +36,17 @@ function Trip() {
       <h2>Start Date: {trip.start_date} </h2>
       <h2>End Date: {trip.end_date} </h2>
       <h2>Itinerary Entries:</h2>
+      {/* <TripForm
+        addTripCallback={addTrip}
+        showTripFormCallback={showTripForm}
+        tripFormActive={tripFormActive}
+      ></TripForm>
+      <DeleteTripForm
+        deleteTripFormActive={deleteTripFormActive}
+        deleteTripCallback={deleteTrip}
+        showDeleteTripFormCallback={showDeleteTripForm}
+        selectedTripId={selectedTripId}
+      ></DeleteTripForm> */}
       <ItineraryEntries trip_id={trip._id} />
     </div>
   );

@@ -3,14 +3,15 @@ import "./ItineraryEntries.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import * as FaIcons from "react-icons/fa";
+import * as IoIcons from "react-icons/io";
+import ItineraryEntryForm from "./ItineraryEntryForm";
 
 function ItineraryEntries(props: any) {
   const [itineraryEntryList, setItineraryEntryList] = useState([]);
   const [entryOrder, setEntryOrder] = useState(0);
-  // const itineraryEntryList: any = [
-  //   { entry_id: 1, name: "test 1", start_time: "5:00pm", end_time: "6:00pm" },
-  //   { entry_id: 2, name: "test 2", start_time: "7:00pm", end_time: "8:00pm" },
-  // ];
+  const [itineraryEntryFormActive, setItineraryEntryFormActive] =
+    useState(false);
+
   const tripId = props.trip_id;
 
   const URL = "https://capstone-trip-planner.herokuapp.com/itinerary_entries";
@@ -39,6 +40,20 @@ function ItineraryEntries(props: any) {
   };
 
   useEffect(getItineraryEntries, [tripId]);
+
+  const addItineraryEntry = (entryInfo: any) => {
+    console.log("add itinerary entry");
+    console.log(entryInfo);
+    axios
+      .post(`${URL}/${tripId}`, entryInfo)
+      .then((response) => {
+        console.log(response);
+        getItineraryEntries();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const sortItineraryEntries = (entryOrder: number) => {
     if (entryOrder === 0) {
@@ -69,6 +84,10 @@ function ItineraryEntries(props: any) {
     sortItineraryEntries(2);
   };
 
+  const showItineraryEntryForm = () => {
+    setItineraryEntryFormActive(!itineraryEntryFormActive);
+  };
+
   const itineraryEntryComponents = itineraryEntryList.map((entry: any) => {
     return (
       // <Link to={`/trips/${trip.trip_id}`} key={trip.trip_id}>
@@ -88,8 +107,12 @@ function ItineraryEntries(props: any) {
   });
 
   return (
-    <div className="itinerary-entries">
+    <div className="itinerary">
       <div className="itinerary-entry-list">
+        <IoIcons.IoMdAddCircle
+          className="new-trip-button"
+          onClick={showItineraryEntryForm}
+        />
         <FaIcons.FaSortAlphaDown
           className="itinerary-entry-sort-button"
           onClick={sortByName}
@@ -103,6 +126,12 @@ function ItineraryEntries(props: any) {
           onClick={sortByFurthestOut}
         />
         <ul id="itinerary-entry-components">{itineraryEntryComponents}</ul>
+        <ItineraryEntryForm
+          className=""
+          addItineraryEntryCallback={addItineraryEntry}
+          showItineraryEntryFormCallback={showItineraryEntryForm}
+          itineraryEntryFormActive={itineraryEntryFormActive}
+        ></ItineraryEntryForm>
       </div>
     </div>
   );
