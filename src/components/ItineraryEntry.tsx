@@ -8,6 +8,13 @@ import moment from "moment";
 function ItineraryEntry(props: any) {
   const deleteEntryConfirm = (event: any) => {
     event.preventDefault();
+    console.log("delete entry confirm");
+    // props.deleteEntryConfirmCallback(props.id);
+  };
+
+  const editEntryConfirm = (event: any) => {
+    event.preventDefault();
+    console.log("edit entry confirm");
     // props.deleteEntryConfirmCallback(props.id);
   };
 
@@ -55,9 +62,13 @@ function ItineraryEntry(props: any) {
         {moment(props.start_time).format("h:mmA")} -{" "}
         {moment(props.end_time).format("h:mmA")}
       </p>
-      <div>{activityTypeIcon()}</div>
+      <div className="itinerary-entry__activity-icon">{activityTypeIcon()}</div>
       <p className="itinerary-entry__price">{props.price}</p>
       <p className="itinerary-entry__location">{props.location}</p>
+      <FaIcons.FaRegEdit
+        className="itinerary-entry__edit-button"
+        onClick={editEntryConfirm}
+      />
       <RiIcons.RiDeleteBinLine
         className="itinerary-entry__delete-button"
         onClick={deleteEntryConfirm}

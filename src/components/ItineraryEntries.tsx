@@ -110,19 +110,19 @@ function ItineraryEntries(props: any) {
     <div className="itinerary">
       <div className="itinerary-entry-list">
         <IoIcons.IoMdAddCircle
-          className="new-trip-button"
+          className="itinerary-entries__add-button"
           onClick={showItineraryEntryForm}
         />
         <FaIcons.FaSortAlphaDown
-          className="itinerary-entry-sort-button"
+          className="itinerary-entries__sort-button"
           onClick={sortByName}
         />
         <FaIcons.FaSortAmountDownAlt
-          className="itinerary-entry-sort-button"
+          className="itinerary-entries__sort-button"
           onClick={sortByUpcoming}
         />
         <FaIcons.FaSortAmountDown
-          className="itinerary-entry-sort-button"
+          className="itinerary-entries__sort-button"
           onClick={sortByFurthestOut}
         />
         <ul id="itinerary-entry-components">{itineraryEntryComponents}</ul>

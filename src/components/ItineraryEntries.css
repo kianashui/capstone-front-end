@@ -8,7 +8,7 @@
 }
 
 .itinerary-entry-list {
-  background-color: red;
+  background-color: #cecece;
   padding: 20px;
   padding-bottom: 50px;
   max-width: 500px;
@@ -16,9 +16,32 @@
 }
 
 #itinerary-entry-components {
-  background-color: antiquewhite;
+  background-color: #e6e6e6;
   padding: 20px;
   padding-bottom: 10px;
   max-width: 500px;
   z-index: 0;
+}
+
+.itinerary-entries__sort-button {
+  padding: 5px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #000000;
+}
+
+.itinerary-entries__sort-button:hover {
+  color: #706f6f;
+}
+
+.itinerary-entries__add-button {
+  padding: 5px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 2.25rem;
+  color: #000000;
+}
+
+.itinerary-entries__add-button:hover {
+  color: #706f6f;
 }

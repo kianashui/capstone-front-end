@@ -41,18 +41,26 @@
 
 .itinerary-entry__delete-button {
   padding: 5px;
-  border-radius: 30px;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #000000;
   position: absolute;
-  top: 25%;
+  bottom: 10%;
+  right: 0;
+  margin-right: 10px;
+}
+
+.itinerary-entry__edit-button {
+  padding: 5px;
+  font-size: 2.2rem;
+  color: #000000;
+  position: absolute;
+  top: 10%;
   right: 0;
   margin-right: 10px;
 }
 
 .itinerary-entry__drag-button {
   padding: 5px;
-  border-radius: 30px;
   color: #000000;
   font-size: 2rem;
   position: absolute;
@@ -67,7 +75,23 @@
   cursor: pointer;
 }
 
+.itinerary-entry__edit-button:hover {
+  color: #706f6f;
+  cursor: pointer;
+}
+
 .itinerary-entry__delete-button:hover {
   color: #706f6f;
   cursor: pointer;
+}
+
+.itinerary-entry__activity-icon {
+  padding: 5px;
+  font-size: 2.5rem;
+  /* color: #000000; */
+  color: #706f6f;
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  margin-right: 50px;
 }

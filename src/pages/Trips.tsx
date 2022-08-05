@@ -128,10 +128,7 @@ function Trips(props: any) {
   return (
     <div className="trips">
       <h1>Trips</h1>
-      <IoIcons.IoMdAddCircle
-        className="new-trip-button"
-        onClick={showTripForm}
-      />
+
       <TripForm
         addTripCallback={addTrip}
         showTripFormCallback={showTripForm}
@@ -144,16 +141,20 @@ function Trips(props: any) {
         selectedTripId={selectedTripId}
       ></DeleteTripForm>
       <div className="trip-list">
+        <IoIcons.IoMdAddCircle
+          className="trips__add-button"
+          onClick={showTripForm}
+        />
         <FaIcons.FaSortAlphaDown
-          className="trip-sort-button"
+          className="trips__sort-button"
           onClick={sortTripsByName}
         />
         <FaIcons.FaSortAmountDownAlt
-          className="trip-sort-button"
+          className="trips__sort-button"
           onClick={sortTripsByUpcoming}
         />
         <FaIcons.FaSortAmountDown
-          className="trip-sort-button"
+          className="trips__sort-button"
           onClick={sortTripsByFurthestOut}
         />
         <ul id="trip-summary-components">{tripSummaryComponents}</ul>

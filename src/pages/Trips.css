@@ -1,47 +1,47 @@
 .trips {
-    display: block;
+  display: block;
 }
 
-.new-trip-button {
-    padding: 5px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 3rem;
-    color: #000000;
+.trips__add-button {
+  padding: 5px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 2.25rem;
+  color: #000000;
 }
 
-.new-trip-button:hover {
-    color: #706F6F;
+.trips__add-button:hover {
+  color: #706f6f;
 }
 
 #trip-summary-components::before {
-    /* content: "\a"; */
-    white-space: break-spaces;
+  /* content: "\a"; */
+  white-space: break-spaces;
 }
 
 .trip-list {
-    background-color: red;
-    padding: 20px;
-    padding-bottom: 50px;
-    max-width: 500px;
-    z-index: 0;
+  background-color: #cecece;
+  padding: 20px;
+  padding-bottom: 50px;
+  max-width: 500px;
+  z-index: 0;
 }
 
 #trip-summary-components {
-    background-color: antiquewhite;
-    padding: 20px;
-    padding-bottom: 10px;
-    max-width: 500px;
-    z-index: 0;
+  background-color: #e6e6e6;
+  padding: 20px;
+  padding-bottom: 10px;
+  max-width: 500px;
+  z-index: 0;
 }
 
-.trip-sort-button {
-    padding: 5px;
-    cursor: pointer;
-    font-size: 2rem;
-    color: #000000;
+.trips__sort-button {
+  padding: 5px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #000000;
 }
 
-.trip-sort-button:hover {
-    color: #706F6F;
+.trips__sort-button:hover {
+  color: #706f6f;
 }

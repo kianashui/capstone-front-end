@@ -34,9 +34,10 @@ function Trip() {
     <div className="trip">
       <h2>Trip ID: {trip._id}</h2>
       <h2>Trip Name: {trip.name} </h2>
-      <h2>Start Date: {moment(trip.start_date).format("ddd, MMMM D, YYYY")}</h2>
-      <h2>End Date: {moment(trip.end_date).format("ddd, MMMM D, YYYY")} </h2>
-      <h2>Itinerary Entries:</h2>
+      <h2>
+        Trip Dates: {moment(trip.start_date).format("ddd, MMMM D, YYYY")} -{" "}
+        {moment(trip.end_date).format("ddd, MMMM D, YYYY")}
+      </h2>
       {/* <TripForm
         addTripCallback={addTrip}
         showTripFormCallback={showTripForm}

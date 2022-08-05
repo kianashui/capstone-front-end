@@ -50,8 +50,11 @@ function ItineraryEntryForm(props: any) {
 
   const handleSubmit = (event: any) => {
     closeForm(event);
+
     // convert price to cents
     itineraryEntryFormData["price"] = itineraryEntryFormData["price"] * 100;
+
+    // add entry
     props.addItineraryEntryCallback(itineraryEntryFormData);
 
     // reset form
@@ -77,16 +80,15 @@ function ItineraryEntryForm(props: any) {
         onClick={closeForm}
       />
       <h2>Add a New Itinerary Entry</h2>
-      {/* <label htmlFor="trip name">Trip Name</label> */}
+      <label htmlFor="name">Itinerary Item</label>
       <input
         type="text"
         name="name"
-        placeholder="Itinerary Entry Name"
+        placeholder="Itinerary Item Name"
         value={itineraryEntryFormData.name}
         onChange={onFormChange}
       ></input>
-      <br />
-      <label htmlFor="start_date">Start Time</label>
+      <label htmlFor="start_time">Start Time</label>
       <input
         type="datetime-local"
         name="start_time"
@@ -94,8 +96,7 @@ function ItineraryEntryForm(props: any) {
         value={itineraryEntryFormData.start_time.toString()}
         onChange={onFormChange}
       ></input>
-      <br />
-      <label htmlFor="end_date">End Time</label>
+      <label htmlFor="end_time">End Time</label>
       <input
         type="datetime-local"
         name="end_time"
@@ -103,6 +104,7 @@ function ItineraryEntryForm(props: any) {
         value={itineraryEntryFormData.end_time.toString()}
         onChange={onFormChange}
       ></input>
+      <label htmlFor="activity_type">Activity Type</label>
       <select
         name="activity_type"
         required
@@ -117,6 +119,7 @@ function ItineraryEntryForm(props: any) {
         <option value="Food">Food</option>
         <option value="Miscellaneous">Miscellaneous</option>
       </select>
+      <label htmlFor="price">Price</label>
       <input
         type="number"
         name="price"
@@ -125,6 +128,7 @@ function ItineraryEntryForm(props: any) {
         value={itineraryEntryFormData.price}
         onChange={onFormChange}
       ></input>
+      <label htmlFor="location">Location</label>
       <input
         type="text"
         name="location"
@@ -132,6 +136,7 @@ function ItineraryEntryForm(props: any) {
         value={itineraryEntryFormData.location}
         onChange={onFormChange}
       ></input>
+      <label htmlFor="notes">Notes</label>
       <input
         type="text"
         name="notes"
