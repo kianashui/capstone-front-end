@@ -2,6 +2,7 @@
 import * as RiIcons from "react-icons/ri";
 // import DeleteTripForm from "./DeleteTripForm";
 import "./TripSummary.css";
+import moment from "moment";
 
 function TripSummary(props: any) {
   const selectTrip = () => {
@@ -19,7 +20,8 @@ function TripSummary(props: any) {
         {props.name}
       </h2>
       <p className="trip-summary__dates">
-        {props.start_date} - {props.end_date}
+        {moment(props.start_date).format("ddd, MMMM D, YYYY")} - {""}
+        {moment(props.end_date).format("ddd, MMMM D, YYYY")}
       </p>
       <RiIcons.RiDeleteBinLine
         className="trip-summary__delete-button"

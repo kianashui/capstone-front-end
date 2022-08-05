@@ -4,8 +4,8 @@
   border-radius: 0.8rem;
   min-width: min-content;
   height: 100px;
-  margin: 0.5rem;
-  padding: 0.5rem;
+  margin: 0.75rem;
+  padding: 0.75rem;
   box-shadow: 1px 1px 3px rgba(33, 33, 33, 0.45);
   position: relative;
 }
@@ -21,6 +21,7 @@
 
 .itinerary-entry-item {
   list-style: none;
+  margin-left: 1rem;
 }
 
 .itinerary-entry__name,
@@ -47,6 +48,23 @@
   top: 25%;
   right: 0;
   margin-right: 10px;
+}
+
+.itinerary-entry__drag-button {
+  padding: 5px;
+  border-radius: 30px;
+  color: #000000;
+  font-size: 2rem;
+  position: absolute;
+  top: 30%;
+  left: -3rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.itinerary-entry__drag-button:hover {
+  color: #706f6f;
+  cursor: pointer;
 }
 
 .itinerary-entry__delete-button:hover {
