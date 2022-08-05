@@ -1,10 +1,10 @@
-import ItineraryEntry from "./ItineraryEntry";
-import "./ItineraryEntries.css";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io";
+import ItineraryEntry from "./ItineraryEntry";
 import ItineraryEntryForm from "./ItineraryEntryForm";
+import "./ItineraryEntries.css";
 
 function ItineraryEntries(props: any) {
   const [itineraryEntryList, setItineraryEntryList] = useState([]);

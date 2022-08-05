@@ -1,13 +1,13 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
-import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
-import "./Navbar.css";
+import { Link } from "react-router-dom";
+import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 // import { Logout } from "./LogoutButton";
-import LoginButton from "./LoginButton";
-import { useAuth0 } from "@auth0/auth0-react";
+import "./Navbar.css";
 
 const handleClick = (event: any) => {
   // event.preventDefault();

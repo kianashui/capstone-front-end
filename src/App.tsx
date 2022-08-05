@@ -1,13 +1,13 @@
-import "./App.css";
-import Navbar from "./components/Navbar";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Trips from "./pages/Trips";
 import Trip from "./pages/Trip";
 import AccountSettings from "./pages/AccountSettings";
 import More from "./pages/More";
 import Loading from "./components/Loading";
-import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -38,6 +38,7 @@ function App() {
                 <Route path="/trips/:tripId" element={<Trip />} />
                 <Route path="/settings" element={<AccountSettings />} />
                 <Route path="/more" element={<More />} />
+                <Route path="/logout" element={<Logout />} />
               </Routes>
             </Router>
           </main>

@@ -1,8 +1,8 @@
+import moment from "moment";
 // import {useState} from "react";
 import * as RiIcons from "react-icons/ri";
 // import DeleteTripForm from "./DeleteTripForm";
 import "./TripSummary.css";
-import moment from "moment";
 
 function TripSummary(props: any) {
   const selectTrip = () => {

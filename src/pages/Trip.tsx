@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import axios from "axios";
-import ItineraryEntries from "../components/ItineraryEntries";
 import moment from "moment";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import * as TiIcons from "react-icons/ti";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import ItineraryEntries from "../components/ItineraryEntries";
 import "./Trip.css";
 
 function Trip() {

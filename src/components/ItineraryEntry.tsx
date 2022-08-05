@@ -1,9 +1,9 @@
-import "./ItineraryEntry.css";
+import moment from "moment";
 import * as RiIcons from "react-icons/ri";
 import * as FaIcons from "react-icons/fa";
 import * as GiIcons from "react-icons/gi";
 import * as GrIcons from "react-icons/gr";
-import moment from "moment";
+import "./ItineraryEntry.css";
 
 function ItineraryEntry(props: any) {
   const deleteEntryConfirm = (event: any) => {

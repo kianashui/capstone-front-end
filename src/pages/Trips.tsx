@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
+import { Link, Outlet } from "react-router-dom";
 import * as IoIcons from "react-icons/io";
 import * as FaIcons from "react-icons/fa";
 import TripSummary from "../components/TripSummary";
 import TripForm from "../components/TripForm";
-import "./Trips.css";
-import { Link, Outlet } from "react-router-dom";
 import DeleteTripForm from "../components/DeleteTripForm";
+import "./Trips.css";
 
 function Trips(props: any) {
   const [tripFormActive, setTripFormActive] = useState(false);
