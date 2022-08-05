@@ -2,10 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
-.home, .trips, .account-settings, .more {
+.home,
+.trips,
+.account-settings,
+.more {
   display: flex;
   height: 90vh;
   align-items: top; /*vertical alignment*/
@@ -14,8 +17,16 @@
   font-size: 1.5rem;
 }
 
+.trip {
+  margin: 25px 25px 40px 25px;
+}
+
+.home {
+  background-color: purple;
+}
+
 .trips h1 {
-  color: #F391A0;
+  color: #f391a0;
   /* color: #706F6F; */
 }
 
@@ -26,10 +37,6 @@ footer {
   margin-top: 20px;
   bottom: 0;
   padding: 10px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   /* z-index: 999; */
-}
-
-.home {
-  background-color: purple;
 }

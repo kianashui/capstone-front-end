@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ItineraryEntries from "../components/ItineraryEntries";
 import moment from "moment";
+import { Link } from "react-router-dom";
+import * as TiIcons from "react-icons/ti";
+import "./Trip.css";
 
 function Trip() {
   const defaultTrip = {
@@ -32,6 +35,10 @@ function Trip() {
 
   return (
     <div className="trip">
+      <Link to="/trips" className="trip__back-to-trips-button">
+        <TiIcons.TiArrowBack />
+        <span>Back to All Trips</span>
+      </Link>
       <h2>Trip ID: {trip._id}</h2>
       <h2>Trip Name: {trip.name} </h2>
       <h2>
