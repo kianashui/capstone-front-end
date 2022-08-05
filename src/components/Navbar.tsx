@@ -46,13 +46,13 @@ const sidebarData = [
     // onClick: {doNothing},
     cName: "nav-text",
   },
-  // {
-  //   title: "Logout",
-  //   path: "/",
-  //   icon: <RiIcons.RiLogoutBoxLine />,
-  //   // onClick: { Logout },
-  //   cName: "nav-text",
-  // },
+  {
+    title: "Logout",
+    path: "/logout",
+    icon: <RiIcons.RiLogoutBoxLine />,
+    // onClick: { Logout },
+    cName: "nav-text",
+  },
 ];
 
 function Navbar() {

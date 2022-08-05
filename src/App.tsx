@@ -7,6 +7,7 @@ import Trip from "./pages/Trip";
 import AccountSettings from "./pages/AccountSettings";
 import More from "./pages/More";
 import Loading from "./components/Loading";
+import Logout from "./pages/Logout";
 import "./App.css";
 
 function App() {
