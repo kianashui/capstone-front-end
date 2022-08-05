@@ -1,37 +1,38 @@
 .delete-trip-form.active {
-    visibility: visible;
+  visibility: visible;
 }
 
 .delete-trip-form {
-    background-color: #EBFAFE;
-    padding: 50px;
-    border-radius: 20px;
-    border: 5px dotted black;
-    margin: 50px;
-    position: absolute;
-    top: 50px;
-    bottom: 20px;
-    right: 50px;
-    left: 50px;
-    visibility: hidden;
-    z-index: 1000;
+  background-color: #ebfafe;
+  padding: 50px;
+  border-radius: 20px;
+  border: 5px dotted black;
+  margin: 50px;
+  position: absolute;
+  top: 50px;
+  bottom: 20px;
+  right: 50px;
+  left: 50px;
+  visibility: hidden;
+  z-index: 1000;
 }
 
 .delete-trip-form input {
-    border-radius: .3rem;
-    margin: .5rem;
-    padding: .5rem;
-    border: 2px solid #706F6F;
-    box-shadow: 1px 1px 3px rgba(33, 33, 33, 0.45);
+  border-radius: 0.3rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 2px solid #706f6f;
+  box-shadow: 1px 1px 3px rgba(33, 33, 33, 0.45);
 }
 
 #delete-trip-form-submit-button {
-    cursor: pointer;
-    background-color: #61dafb;
+  cursor: pointer;
+  background-color: #0000b8;
+  color: #ffffff;
 }
 
 #delete-trip-form-cancel-button {
-    cursor: pointer;
-    background-color: #706F6F;
-    color: #FFFFFF;
+  cursor: pointer;
+  background-color: #706f6f;
+  color: #ffffff;
 }

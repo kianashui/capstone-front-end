@@ -28,7 +28,7 @@ function DeleteTripForm(props: any) {
         id="delete-trip-form-cancel-button"
         type="button"
         name="Cancel"
-        value="Cancel Delete Trip"
+        value="Cancel"
         onClick={handleCancel}
       ></input>
       <input

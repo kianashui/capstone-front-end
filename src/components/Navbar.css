@@ -12,6 +12,7 @@
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
+  color: #2f4f4f;
 }
 
 .nav-menu {
@@ -44,7 +45,7 @@
 
 .nav-text a {
   text-decoration: none;
-  color: darkslategray;
+  color: #2f4f4f;
   font-size: 20px;
   width: 95%;
   height: 100%;
@@ -56,11 +57,11 @@
 
 .nav-text a:hover {
   background-color: #00008b;
-  color: white;
+  color: #ffffff;
 }
 
 .icons:hover {
-  color: white;
+  color: #ffffff;
 }
 
 .nav-menu-items {
