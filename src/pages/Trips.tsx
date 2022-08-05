@@ -8,7 +8,7 @@ import "./Trips.css";
 import { Link, Outlet } from "react-router-dom";
 import DeleteTripForm from "../components/DeleteTripForm";
 
-function Trips() {
+function Trips(props: any) {
   const [tripFormActive, setTripFormActive] = useState(false);
   const [deleteTripFormActive, setDeleteTripFormActive] = useState(false);
   const [tripList, setTripList] = useState([]);
@@ -38,6 +38,9 @@ function Trips() {
           };
         });
         setTripList(newTrips);
+      })
+      .finally(() => {
+        props.loadingCallback();
       })
       .catch((err) => {
         console.log(err);

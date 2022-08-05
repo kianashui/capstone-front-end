@@ -16,6 +16,10 @@ function App() {
     setTimeout(() => setLoading(false), 2000);
   }, []);
 
+  const setLoadingStateFalse = () => {
+    setLoading(false);
+  };
+
   return (
     <>
       {loading ? (
@@ -27,7 +31,10 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/trips" element={<Trips />} />
+                <Route
+                  path="/trips"
+                  element={<Trips loadingCallback={setLoadingStateFalse} />}
+                />
                 <Route path="/trips/:tripId" element={<Trip />} />
                 <Route path="/settings" element={<AccountSettings />} />
                 <Route path="/more" element={<More />} />

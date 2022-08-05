@@ -11,6 +11,8 @@ function ItineraryEntryForm(props: any) {
     activity_type: "",
     price: 0,
     location: "",
+    notes: "",
+    // attachment_file: "",
   };
 
   const [itineraryEntryFormData, setitineraryEntryFormData] = useState(
@@ -37,7 +39,8 @@ function ItineraryEntryForm(props: any) {
       !newFormData.start_time ||
       !newFormData.end_time ||
       newFormData.start_time > newFormData.end_time ||
-      !newFormData.activity_type
+      !newFormData.activity_type ||
+      !newFormData.notes
     ) {
       setDisableSubmit(true);
     } else {
@@ -47,6 +50,8 @@ function ItineraryEntryForm(props: any) {
 
   const handleSubmit = (event: any) => {
     closeForm(event);
+    // convert price to cents
+    itineraryEntryFormData["price"] = itineraryEntryFormData["price"] * 100;
     props.addItineraryEntryCallback(itineraryEntryFormData);
 
     // reset form
@@ -98,7 +103,13 @@ function ItineraryEntryForm(props: any) {
         value={itineraryEntryFormData.end_time.toString()}
         onChange={onFormChange}
       ></input>
-      <select name="activity_type" required onChange={onFormChange}>
+      <select
+        name="activity_type"
+        required
+        value={itineraryEntryFormData.activity_type}
+        defaultValue={""}
+        onChange={onFormChange}
+      >
         <option value="">--Choose Activity Type--</option>
         <option value="Accommodations">Accommodations</option>
         <option value="Activity">Activity</option>
@@ -121,6 +132,20 @@ function ItineraryEntryForm(props: any) {
         value={itineraryEntryFormData.location}
         onChange={onFormChange}
       ></input>
+      <input
+        type="text"
+        name="notes"
+        placeholder="Notes"
+        value={itineraryEntryFormData.notes}
+        onChange={onFormChange}
+      ></input>
+      {/* <input
+        type="file"
+        name="attachment_file"
+        placeholder="Attach a File"
+        value={itineraryEntryFormData.attachment_file}
+        onChange={onFormChange}
+      ></input> */}
       <input
         id="itinerary-entry-form-submit-button"
         type="submit"
