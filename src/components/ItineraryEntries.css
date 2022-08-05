@@ -9,6 +9,7 @@
 
 .itinerary-entry-list {
   background-color: #cecece;
+  border-radius: 1rem;
   padding: 20px;
   padding-bottom: 50px;
   max-width: 500px;
@@ -17,6 +18,7 @@
 
 #itinerary-entry-components {
   background-color: #e6e6e6;
+  border-radius: 1rem;
   padding: 20px;
   padding-bottom: 10px;
   max-width: 500px;

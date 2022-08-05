@@ -25,10 +25,12 @@
   padding-bottom: 50px;
   max-width: 500px;
   z-index: 0;
+  border-radius: 1rem;
 }
 
 #trip-summary-components {
   background-color: #e6e6e6;
+  border-radius: 1rem;
   padding: 20px;
   padding-bottom: 10px;
   max-width: 500px;
