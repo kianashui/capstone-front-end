@@ -3,20 +3,24 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Auth0Provider } from "@auth0/auth0-react";
+// import { Auth0Provider } from "@auth0/auth0-react";
+import { BrowserRouter as Router } from "react-router-dom";
+import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Auth0Provider
-      domain="capstone-trip-planner.us.auth0.com"
-      clientId="WHwpqLgdrQ21bVGOX4W0gmOh2j5hs6tr"
-      redirectUri={window.location.origin}
-    >
-      <App />
-    </Auth0Provider>
+    <Router>
+      <Auth0ProviderWithHistory
+      // domain="capstone-trip-planner.us.auth0.com"
+      // clientId="WHwpqLgdrQ21bVGOX4W0gmOh2j5hs6tr"
+      // redirectUri={window.location.origin}
+      >
+        <App />
+      </Auth0ProviderWithHistory>
+    </Router>
   </React.StrictMode>
 );
 

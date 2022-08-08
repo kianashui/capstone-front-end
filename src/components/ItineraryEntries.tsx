@@ -12,31 +12,32 @@ function ItineraryEntries(props: any) {
   const [itineraryEntryFormActive, setItineraryEntryFormActive] =
     useState(false);
 
-  const tripId = props.trip_id;
+  const tripId: string = props.trip_id;
 
   const URL = "https://capstone-trip-planner.herokuapp.com/itinerary_entries";
 
   const getItineraryEntries = () => {
-    console.log(tripId);
-    axios
-      .get(`${URL}/${tripId}`)
-      .then((response) => {
-        console.log(response.data);
-        const newItineraryEntries = response.data.map((entry: any) => {
-          return {
-            name: entry.name,
-            start_time: entry.start_time,
-            end_time: entry.end_time,
-            activity_type: entry.activity_type,
-            price: entry.price,
-            location: entry.location,
-          };
+    if (tripId !== "") {
+      axios
+        .get(`${URL}/${tripId}`)
+        .then((response) => {
+          console.log(response.data);
+          const newItineraryEntries = response.data.map((entry: any) => {
+            return {
+              name: entry.name,
+              start_time: entry.start_time,
+              end_time: entry.end_time,
+              activity_type: entry.activity_type,
+              price: entry.price,
+              location: entry.location,
+            };
+          });
+          setItineraryEntryList(newItineraryEntries);
+        })
+        .catch((err) => {
+          console.log(err);
         });
-        setItineraryEntryList(newItineraryEntries);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    }
   };
 
   useEffect(getItineraryEntries, [tripId]);

@@ -6,51 +6,45 @@ import { IconContext } from "react-icons";
 import { Link } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
-// import { Logout } from "./LogoutButton";
 import "./Navbar.css";
 
-const handleClick = (event: any) => {
-  // event.preventDefault();
-  if (event.target.innerText === "Logout") {
-    // log out logic if logout is clicked
-    // Logout();
-  }
-};
+// const handleClick = (event: any) => {
+//   // event.preventDefault();
+//   if (event.target.innerText === "Logout") {
+//     // log out logic if logout is clicked
+//     // Logout();
+//   }
+// };
 
 const sidebarData = [
   {
     title: "Home",
     path: "/",
     icon: <AiIcons.AiFillHome />,
-    // onClick: {doNothing},
     cName: "nav-text",
   },
   {
     title: "Trips",
     path: "/trips",
     icon: <RiIcons.RiPlaneFill />,
-    // onClick: {doNothing},
     cName: "nav-text",
   },
   {
     title: "Account Settings",
     path: "/settings",
     icon: <RiIcons.RiUserSettingsFill />,
-    // onClick: {doNothing},
     cName: "nav-text",
   },
   {
     title: "More",
     path: "/more",
     icon: <RiIcons.RiMoreFill />,
-    // onClick: {doNothing},
     cName: "nav-text",
   },
   {
     title: "Logout",
     path: "/logout",
     icon: <RiIcons.RiLogoutBoxLine />,
-    // onClick: { Logout },
     cName: "nav-text",
   },
 ];
@@ -79,7 +73,7 @@ function Navbar() {
             {sidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
-                  <Link to={item.path} onClick={handleClick}>
+                  <Link to={item.path}>
                     {item.icon}
                     <span>{item.title}</span>
                   </Link>

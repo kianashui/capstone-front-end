@@ -20,15 +20,17 @@ function Trip() {
   const URL = "https://capstone-trip-planner.herokuapp.com/trips";
 
   const getOneTrip = () => {
-    axios
-      .get(`${URL}/${tripId}`)
-      .then((response) => {
-        const tripData = response.data[0];
-        setTrip(tripData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (tripId !== "") {
+      axios
+        .get(`${URL}/${tripId}`)
+        .then((response) => {
+          const tripData = response.data[0];
+          setTrip(tripData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   useEffect(getOneTrip, [tripId]);

@@ -13,9 +13,10 @@ const Profile = () => {
       {user !== undefined && isAuthenticated && (
         <div>
           {/* <img src={user.picture} alt={user.name} /> */}
-          <h2>{user.name}</h2>
-          <p>{user.email}</p>
-          <p>{user.user_id}</p>
+          <h2 className="user-name">{user.name}</h2>
+          <p className="user-email">{user.email}</p>
+          <p className="user-user-id">{user.user_id}</p>
+          {/* <img src={user.picture} alt="user" /> */}
         </div>
       )}
     </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Trips from "./pages/Trips";
@@ -28,20 +28,18 @@ function App() {
       ) : (
         <div className="App">
           <main>
-            <Router>
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route
-                  path="/trips"
-                  element={<Trips loadingCallback={setLoadingStateFalse} />}
-                />
-                <Route path="/trips/:tripId" element={<Trip />} />
-                <Route path="/settings" element={<AccountSettings />} />
-                <Route path="/more" element={<More />} />
-                <Route path="/logout" element={<Logout />} />
-              </Routes>
-            </Router>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/trips"
+                element={<Trips loadingCallback={setLoadingStateFalse} />}
+              />
+              <Route path="/trips/:tripId" element={<Trip />} />
+              <Route path="/settings" element={<AccountSettings />} />
+              <Route path="/more" element={<More />} />
+              <Route path="/logout" element={<Logout />} />
+            </Routes>
           </main>
           <footer>
             <p> &copy;2022, Kiana Shui</p>
