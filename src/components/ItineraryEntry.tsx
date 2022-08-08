@@ -18,6 +18,12 @@ function ItineraryEntry(props: any) {
     // props.deleteEntryConfirmCallback(props.id);
   };
 
+  const convertedPrice = () => {
+    const priceInCents: number = props.price;
+    const priceInDollars: number = priceInCents / 100;
+    return `$${priceInDollars}`;
+  };
+
   const activityTypeIcon = () => {
     if (props.activity_type === "Accommodations") {
       return (
@@ -63,7 +69,7 @@ function ItineraryEntry(props: any) {
         {moment(props.end_time).format("h:mmA")}
       </p>
       <div className="itinerary-entry__activity-icon">{activityTypeIcon()}</div>
-      <p className="itinerary-entry__price">{props.price}</p>
+      <p className="itinerary-entry__price">{convertedPrice()}</p>
       <p className="itinerary-entry__location">{props.location}</p>
       <FaIcons.FaRegEdit
         className="itinerary-entry__edit-button"
