@@ -25,8 +25,11 @@ function Trips(props: any) {
   };
 
   const getTrips = () => {
+    const userId: string = process.env.REACT_APP_USER_ID as string;
     axios
-      .get(URL)
+      .get(URL, {
+        headers: { user_id: userId },
+      })
       .then((response) => {
         const newTrips = response.data.map((trip: any) => {
           return {
@@ -50,8 +53,11 @@ function Trips(props: any) {
   const addTrip = (tripInfo: any) => {
     console.log("add trip");
     console.log(tripInfo);
+    const userId: string = process.env.REACT_APP_USER_ID as string;
     axios
-      .post(URL, tripInfo)
+      .post(URL, tripInfo, {
+        headers: { user_id: userId },
+      })
       .then((response) => {
         console.log(response);
         getTrips();

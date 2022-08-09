@@ -14,8 +14,10 @@ const Profile = () => {
         <div>
           {/* <img src={user.picture} alt={user.name} /> */}
           <h2 className="user-name">{user.name}</h2>
+          <h2 className="user-given_name">{user.given_name}</h2>
+          <h2 className="user-family_name">{user.family_name}</h2>
+          <p className="user-user-id">{user.sub}</p>
           <p className="user-email">{user.email}</p>
-          <p className="user-user-id">{user.user_id}</p>
           {/* <img src={user.picture} alt="user" /> */}
         </div>
       )}

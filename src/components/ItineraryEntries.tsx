@@ -17,9 +17,12 @@ function ItineraryEntries(props: any) {
   const URL = "https://capstone-trip-planner.herokuapp.com/itinerary_entries";
 
   const getItineraryEntries = () => {
-    if (tripId !== "") {
+    const userId: string = process.env.REACT_APP_USER_ID as string;
+    if (tripId !== "" && userId !== "undefined") {
       axios
-        .get(`${URL}/${tripId}`)
+        .get(`${URL}/${tripId}`, {
+          headers: { user_id: userId },
+        })
         .then((response) => {
           console.log(response.data);
           const newItineraryEntries = response.data.map((entry: any) => {
@@ -45,8 +48,11 @@ function ItineraryEntries(props: any) {
   const addItineraryEntry = (entryInfo: any) => {
     console.log("add itinerary entry");
     console.log(entryInfo);
+    const userId: string = process.env.REACT_APP_USER_ID as string;
     axios
-      .post(`${URL}/${tripId}`, entryInfo)
+      .post(`${URL}/${tripId}`, entryInfo, {
+        headers: { user_id: userId },
+      })
       .then((response) => {
         console.log(response);
         getItineraryEntries();

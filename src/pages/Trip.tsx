@@ -20,9 +20,12 @@ function Trip() {
   const URL = "https://capstone-trip-planner.herokuapp.com/trips";
 
   const getOneTrip = () => {
+    const userId: string = process.env.REACT_APP_USER_ID as string;
     if (tripId !== "") {
       axios
-        .get(`${URL}/${tripId}`)
+        .get(`${URL}/${tripId}`, {
+          headers: { user_id: userId },
+        })
         .then((response) => {
           const tripData = response.data[0];
           setTrip(tripData);
