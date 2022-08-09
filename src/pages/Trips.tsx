@@ -7,6 +7,7 @@ import TripSummary from "../components/TripSummary";
 import TripForm from "../components/TripForm";
 import DeleteTripForm from "../components/DeleteTripForm";
 import "./Trips.css";
+import { userIdString } from "../components/Profile";
 
 function Trips(props: any) {
   const [tripFormActive, setTripFormActive] = useState(false);
@@ -25,10 +26,10 @@ function Trips(props: any) {
   };
 
   const getTrips = () => {
-    const userId: string = process.env.REACT_APP_USER_ID as string;
+    const userIdString: string = process.env.REACT_APP_USER_ID as string;
     axios
       .get(URL, {
-        headers: { user_id: userId },
+        headers: { user_id: userIdString },
       })
       .then((response) => {
         const newTrips = response.data.map((trip: any) => {

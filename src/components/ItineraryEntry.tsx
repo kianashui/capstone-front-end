@@ -9,7 +9,7 @@ function ItineraryEntry(props: any) {
   const deleteEntryConfirm = (event: any) => {
     event.preventDefault();
     console.log("delete entry confirm");
-    // props.deleteEntryConfirmCallback(props.id);
+    props.deleteItineraryEntryConfirmCallback(props.id);
   };
 
   const editEntryConfirm = (event: any) => {

@@ -4,6 +4,7 @@ import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io";
 import ItineraryEntry from "./ItineraryEntry";
 import ItineraryEntryForm from "./ItineraryEntryForm";
+import DeleteItineraryEntryForm from "./DeleteItineraryEntryForm";
 import "./ItineraryEntries.css";
 
 function ItineraryEntries(props: any) {
@@ -11,16 +12,26 @@ function ItineraryEntries(props: any) {
   const [entryOrder, setEntryOrder] = useState(0);
   const [itineraryEntryFormActive, setItineraryEntryFormActive] =
     useState(false);
+  const [deleteItineraryEntryFormActive, setdeleteItineraryEntryFormActive] =
+    useState(false);
+  const [selectedItineraryEntryId, setSelectedItineraryEntryId] = useState("");
 
   const tripId: string = props.trip_id;
+  const URL: string = "https://capstone-trip-planner.herokuapp.com";
 
-  const URL = "https://capstone-trip-planner.herokuapp.com/itinerary_entries";
+  const showItineraryEntryForm = () => {
+    setItineraryEntryFormActive(!itineraryEntryFormActive);
+  };
+
+  const showDeleteItineraryEntryForm = () => {
+    setdeleteItineraryEntryFormActive(!deleteItineraryEntryFormActive);
+  };
 
   const getItineraryEntries = () => {
     const userId: string = process.env.REACT_APP_USER_ID as string;
     if (tripId !== "" && userId !== "undefined") {
       axios
-        .get(`${URL}/${tripId}`, {
+        .get(`${URL}/trips/${tripId}/itinerary_entries`, {
           headers: { user_id: userId },
         })
         .then((response) => {
@@ -33,6 +44,7 @@ function ItineraryEntries(props: any) {
               activity_type: entry.activity_type,
               price: entry.price,
               location: entry.location,
+              entry_id: entry.id,
             };
           });
           setItineraryEntryList(newItineraryEntries);
@@ -50,9 +62,29 @@ function ItineraryEntries(props: any) {
     console.log(entryInfo);
     const userId: string = process.env.REACT_APP_USER_ID as string;
     axios
-      .post(`${URL}/${tripId}`, entryInfo, {
+      .post(`${URL}/trips/${tripId}/itinerary_entries`, entryInfo, {
         headers: { user_id: userId },
       })
+      .then((response) => {
+        console.log(response);
+        getItineraryEntries();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const deleteItineraryEntryConfirm = (selectedEntryId: string) => {
+    console.log("delete itin confirm");
+    showDeleteItineraryEntryForm();
+    setSelectedItineraryEntryId(selectedEntryId);
+    // deleteItineraryEntry(selectedEntryId);
+  };
+
+  const deleteItineraryEntry = (selectedEntryId: string) => {
+    console.log("delete itin entry for :", selectedEntryId);
+    axios
+      .delete(`${URL}/trips/${tripId}/itinerary_entries/${selectedEntryId}`)
       .then((response) => {
         console.log(response);
         getItineraryEntries();
@@ -91,10 +123,6 @@ function ItineraryEntries(props: any) {
     sortItineraryEntries(2);
   };
 
-  const showItineraryEntryForm = () => {
-    setItineraryEntryFormActive(!itineraryEntryFormActive);
-  };
-
   const itineraryEntryComponents = itineraryEntryList.map((entry: any) => {
     return (
       // <Link to={`/trips/${trip.trip_id}`} key={trip.trip_id}>
@@ -107,6 +135,7 @@ function ItineraryEntries(props: any) {
           activity_type={entry.activity_type}
           price={entry.price}
           location={entry.location}
+          deleteItineraryEntryConfirmCallback={deleteItineraryEntryConfirm}
         />
       </li>
       // </Link>
@@ -139,6 +168,12 @@ function ItineraryEntries(props: any) {
           showItineraryEntryFormCallback={showItineraryEntryForm}
           itineraryEntryFormActive={itineraryEntryFormActive}
         ></ItineraryEntryForm>
+        <DeleteItineraryEntryForm
+          deleteItineraryEntryCallback={deleteItineraryEntry}
+          showDeleteItineraryEntryFormCallback={showDeleteItineraryEntryForm}
+          deleteItineraryEntryFormActive={deleteItineraryEntryFormActive}
+          selectedItineraryEntryId={selectedItineraryEntryId}
+        ></DeleteItineraryEntryForm>
       </div>
     </div>
   );

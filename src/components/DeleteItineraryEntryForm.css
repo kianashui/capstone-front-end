@@ -1,0 +1,38 @@
+.delete-itinerary-entry-form.active {
+  visibility: visible;
+}
+
+.delete-itinerary-entry-form {
+  background-color: #ebfafe;
+  padding: 50px;
+  border-radius: 20px;
+  border: 5px dotted black;
+  margin: 50px;
+  position: absolute;
+  top: 50px;
+  bottom: 20px;
+  right: 50px;
+  left: 50px;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.delete-itinerary-entry-form input {
+  border-radius: 0.3rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 2px solid #706f6f;
+  box-shadow: 1px 1px 3px rgba(33, 33, 33, 0.45);
+}
+
+#delete-itinerary-entry-form-submit-button {
+  cursor: pointer;
+  background-color: #0000b8;
+  color: #ffffff;
+}
+
+#delete-itinerary-entry-form-cancel-button {
+  cursor: pointer;
+  background-color: #706f6f;
+  color: #ffffff;
+}

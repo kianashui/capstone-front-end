@@ -5,6 +5,7 @@ import * as TiIcons from "react-icons/ti";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ItineraryEntries from "../components/ItineraryEntries";
+import DeleteItineraryEntryForm from "../components/DeleteItineraryEntryForm";
 import "./Trip.css";
 
 function Trip() {
@@ -54,13 +55,7 @@ function Trip() {
         addTripCallback={addTrip}
         showTripFormCallback={showTripForm}
         tripFormActive={tripFormActive}
-      ></TripForm>
-      <DeleteTripForm
-        deleteTripFormActive={deleteTripFormActive}
-        deleteTripCallback={deleteTrip}
-        showDeleteTripFormCallback={showDeleteTripForm}
-        selectedTripId={selectedTripId}
-      ></DeleteTripForm> */}
+  ></TripForm>*/}
       <ItineraryEntries trip_id={trip._id} />
     </div>
   );
