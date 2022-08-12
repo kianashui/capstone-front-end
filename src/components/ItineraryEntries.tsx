@@ -28,11 +28,12 @@ function ItineraryEntries(props: any) {
   };
 
   const getItineraryEntries = () => {
-    const userId: string = process.env.REACT_APP_USER_ID as string;
-    if (tripId !== "" && userId !== "undefined") {
+    // const userId: string = process.env.REACT_APP_USER_ID as string;
+    const userIdString = props.userId;
+    if (tripId !== "") {
       axios
         .get(`${URL}/trips/${tripId}/itinerary_entries`, {
-          headers: { user_id: userId },
+          headers: { user_id: userIdString },
         })
         .then((response) => {
           console.log(response.data);
@@ -55,15 +56,16 @@ function ItineraryEntries(props: any) {
     }
   };
 
-  useEffect(getItineraryEntries, [tripId]);
+  useEffect(getItineraryEntries, [tripId, props.userId]);
 
   const addItineraryEntry = (entryInfo: any) => {
     console.log("add itinerary entry");
     console.log(entryInfo);
-    const userId: string = process.env.REACT_APP_USER_ID as string;
+    // const userId: string = process.env.REACT_APP_USER_ID as string;
+    const userIdString = props.userId;
     axios
       .post(`${URL}/trips/${tripId}/itinerary_entries`, entryInfo, {
-        headers: { user_id: userId },
+        headers: { user_id: userIdString },
       })
       .then((response) => {
         console.log(response);

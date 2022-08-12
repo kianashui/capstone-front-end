@@ -7,7 +7,7 @@ import TripSummary from "../components/TripSummary";
 import TripForm from "../components/TripForm";
 import DeleteTripForm from "../components/DeleteTripForm";
 import "./Trips.css";
-import { userIdString } from "../components/Profile";
+// import { UserId } from "../components/Profile";
 
 function Trips(props: any) {
   const [tripFormActive, setTripFormActive] = useState(false);
@@ -26,7 +26,10 @@ function Trips(props: any) {
   };
 
   const getTrips = () => {
-    const userIdString: string = process.env.REACT_APP_USER_ID as string;
+    // userIdString
+    // const userIdString: string = process.env.REACT_APP_USER_ID as string;
+    // const userIdString = UserId();
+    const userIdString = props.userId;
     axios
       .get(URL, {
         headers: { user_id: userIdString },
@@ -54,10 +57,11 @@ function Trips(props: any) {
   const addTrip = (tripInfo: any) => {
     console.log("add trip");
     console.log(tripInfo);
-    const userId: string = process.env.REACT_APP_USER_ID as string;
+    // const userId: string = process.env.REACT_APP_USER_ID as string;
+    const userIdString = props.userId;
     axios
       .post(URL, tripInfo, {
-        headers: { user_id: userId },
+        headers: { user_id: userIdString },
       })
       .then((response) => {
         console.log(response);

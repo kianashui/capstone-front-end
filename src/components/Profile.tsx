@@ -73,17 +73,5 @@ const UserEmail = () => {
   );
 };
 
-// const UserId = () => {
-//   const { user, isAuthenticated } = useAuth0();
-//   const userId: string = (user !== undefined &&
-//     isAuthenticated &&
-//     user.sub);
-
-//   return userId;
-// };
-
-// const userIdString: string = UserId();
-const userIdString: string = "";
-
 export default Profile;
-export { UserFirstName, UserLastName, UserEmail, userIdString };
+export { UserFirstName, UserLastName, UserEmail };

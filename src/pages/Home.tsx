@@ -1,6 +1,6 @@
 // import LoginButton from "../components/LoginButton";
 // import { UserFirstName } from "../components/Profile";
-function Home() {
+function Home(props: any) {
   return (
     <div className="home">
       <h1>Home</h1>

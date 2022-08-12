@@ -14,11 +14,6 @@
   background-color: #c3f1fd;
 }
 
-/* remove underline from trip-summary__name and trip-summary__dates*/
-/* a {
-  text-decoration: none;
-} */
-
 .itinerary-entry-item {
   list-style: none;
   margin-left: 1rem;

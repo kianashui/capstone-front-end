@@ -9,6 +9,7 @@ import More from "./pages/More";
 import Loading from "./components/Loading";
 import Logout from "./pages/Logout";
 import "./App.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -21,6 +22,18 @@ function App() {
     setLoading(false);
   };
 
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [userId, setUserId] = useState("");
+
+  const changeUserId = () => {
+    if (user !== undefined && isAuthenticated) {
+      const id: string = user.sub as string;
+      setUserId(id);
+    }
+  };
+
+  useEffect(changeUserId, [user, isAuthenticated]);
+
   return (
     <>
       {loading ? (
@@ -30,14 +43,22 @@ function App() {
           <main>
             <Navbar />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home userId={userId} />} />
               <Route
                 path="/trips"
-                element={<Trips loadingCallback={setLoadingStateFalse} />}
+                element={
+                  <Trips
+                    userId={userId}
+                    loadingCallback={setLoadingStateFalse}
+                  />
+                }
               />
-              <Route path="/trips/:tripId" element={<Trip />} />
-              <Route path="/settings" element={<AccountSettings />} />
-              <Route path="/more" element={<More />} />
+              <Route path="/trips/:tripId" element={<Trip userId={userId} />} />
+              <Route
+                path="/settings"
+                element={<AccountSettings userId={userId} />}
+              />
+              <Route path="/more" element={<More userId={userId} />} />
               <Route path="/logout" element={<Logout />} />
             </Routes>
           </main>

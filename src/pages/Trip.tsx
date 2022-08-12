@@ -8,7 +8,7 @@ import ItineraryEntries from "../components/ItineraryEntries";
 import DeleteItineraryEntryForm from "../components/DeleteItineraryEntryForm";
 import "./Trip.css";
 
-function Trip() {
+function Trip(props: any) {
   const defaultTrip = {
     _id: "",
     name: "",
@@ -21,11 +21,12 @@ function Trip() {
   const URL = "https://capstone-trip-planner.herokuapp.com/trips";
 
   const getOneTrip = () => {
-    const userId: string = process.env.REACT_APP_USER_ID as string;
-    if (tripId !== "") {
+    // const userId: string = process.env.REACT_APP_USER_ID as string;
+    const userIdString = props.userId;
+    if (tripId !== "" && userIdString !== "") {
       axios
         .get(`${URL}/${tripId}`, {
-          headers: { user_id: userId },
+          headers: { user_id: userIdString },
         })
         .then((response) => {
           const tripData = response.data[0];
@@ -37,7 +38,7 @@ function Trip() {
     }
   };
 
-  useEffect(getOneTrip, [tripId]);
+  useEffect(getOneTrip, [tripId, props.userId]);
 
   return (
     <div className="trip">
@@ -56,7 +57,7 @@ function Trip() {
         showTripFormCallback={showTripForm}
         tripFormActive={tripFormActive}
   ></TripForm>*/}
-      <ItineraryEntries trip_id={trip._id} />
+      <ItineraryEntries trip_id={trip._id} userId={props.userId} />
     </div>
   );
 }
