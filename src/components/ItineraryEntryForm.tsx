@@ -59,6 +59,7 @@ function ItineraryEntryForm(props: any) {
 
     // reset form
     setitineraryEntryFormData(defaultItineraryEntryForm);
+    setDisableSubmit(true);
   };
 
   const closeForm = (event: any) => {
@@ -109,7 +110,7 @@ function ItineraryEntryForm(props: any) {
         name="activity_type"
         required
         value={itineraryEntryFormData.activity_type}
-        defaultValue={""}
+        // defaultValue={""}
         onChange={onFormChange}
       >
         <option value="">--Choose Activity Type--</option>
