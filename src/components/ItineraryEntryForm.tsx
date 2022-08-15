@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import "./ItineraryEntryForm.css";
+import moment from "moment-timezone";
 
 function ItineraryEntryForm(props: any) {
   // set default form to empty form and disable submit
@@ -26,6 +27,10 @@ function ItineraryEntryForm(props: any) {
     let inputValue: any = event.target.value;
     if (stateName === "price") {
       inputValue = Number(inputValue);
+    } else if (stateName === "start_time" || stateName === "end_time") {
+      inputValue = moment
+        .tz(inputValue, Intl.DateTimeFormat().resolvedOptions().timeZone)
+        .format();
     }
     // replace form data
     const newFormData: any = { ...itineraryEntryFormData };
@@ -94,7 +99,10 @@ function ItineraryEntryForm(props: any) {
         type="datetime-local"
         name="start_time"
         placeholder="Start Time"
-        value={itineraryEntryFormData.start_time.toString()}
+        // value={itineraryEntryFormData.start_time.toString()}
+        value={moment(itineraryEntryFormData.start_time).format(
+          "YYYY-MM-DDTHH:mm"
+        )}
         onChange={onFormChange}
       ></input>
       <label htmlFor="end_time">End Time</label>
@@ -102,7 +110,10 @@ function ItineraryEntryForm(props: any) {
         type="datetime-local"
         name="end_time"
         placeholder="End Time"
-        value={itineraryEntryFormData.end_time.toString()}
+        // value={itineraryEntryFormData.end_time.toString()}
+        value={moment(itineraryEntryFormData.end_time).format(
+          "YYYY-MM-DDTHH:mm"
+        )}
         onChange={onFormChange}
       ></input>
       <label htmlFor="activity_type">Activity Type</label>

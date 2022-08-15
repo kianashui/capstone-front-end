@@ -1,4 +1,5 @@
-import moment from "moment";
+// import moment from "moment";
+import moment from "moment-timezone";
 import * as RiIcons from "react-icons/ri";
 import * as FaIcons from "react-icons/fa";
 import * as GiIcons from "react-icons/gi";
@@ -65,8 +66,16 @@ function ItineraryEntry(props: any) {
       <GrIcons.GrDrag className="itinerary-entry__drag-button" />
       <h3 className="itinerary-entry__name">{props.name}</h3>
       <p className="itinerary-entry__times">
-        {moment(props.start_time).format("h:mmA")} -{" "}
-        {moment(props.end_time).format("h:mmA")}
+        {moment
+          .tz(
+            props.start_time,
+            Intl.DateTimeFormat().resolvedOptions().timeZone
+          )
+          .format("h:mmA")}{" "}
+        -{" "}
+        {moment
+          .tz(props.end_time, Intl.DateTimeFormat().resolvedOptions().timeZone)
+          .format("h:mmA")}
       </p>
       <div className="itinerary-entry__activity-icon">{activityTypeIcon()}</div>
       <p className="itinerary-entry__price">{convertedPrice()}</p>

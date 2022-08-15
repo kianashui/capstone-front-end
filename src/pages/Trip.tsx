@@ -39,7 +39,6 @@ function Trip(props: any) {
   };
 
   useEffect(getOneTrip, [tripId, props.userId]);
-
   return (
     <div className="trip">
       <Link to="/trips" className="trip__back-to-trips-button">
@@ -49,7 +48,8 @@ function Trip(props: any) {
       <h2>Trip ID: {trip._id}</h2>
       <h2>Trip Name: {trip.name} </h2>
       <h2>
-        Trip Dates: {moment(trip.start_date).format("ddd, MMMM D, YYYY")} -{" "}
+        Trip Dates:
+        {moment(trip.start_date).format("ddd, MMMM D, YYYY")} -{" "}
         {moment(trip.end_date).format("ddd, MMMM D, YYYY")}
       </h2>
       {/* <TripForm
