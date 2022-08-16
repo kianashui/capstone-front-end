@@ -17,13 +17,14 @@ function Trip(props: any) {
   };
   const [trip, setTrip] = useState(defaultTrip);
   const tripId = useParams().tripId;
-  const URL = "https://capstone-trip-planner.herokuapp.com/trips";
+  const URL: string = process.env
+    .REACT_APP_CAPSTONE_TRIP_PLANNER_BACKEND_URL as string;
 
   const getOneTrip = () => {
     const userIdString = props.userId;
     if (tripId !== "" && userIdString !== "") {
       axios
-        .get(`${URL}/${tripId}`, {
+        .get(`${URL}/trips/${tripId}`, {
           headers: { user_id: userIdString },
         })
         .then((response) => {

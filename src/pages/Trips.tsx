@@ -14,7 +14,8 @@ function Trips(props: any) {
   const [tripList, setTripList] = useState([]);
   const [tripOrder, setTripOrder] = useState(0);
   const [selectedTripId, setSelectedTripId] = useState("");
-  const URL = "https://capstone-trip-planner.herokuapp.com/trips";
+  const URL: string = process.env
+    .REACT_APP_CAPSTONE_TRIP_PLANNER_BACKEND_URL as string;
 
   const showTripForm = () => {
     setTripFormActive(!tripFormActive);
@@ -27,7 +28,7 @@ function Trips(props: any) {
   const getTrips = () => {
     const userIdString = props.userId;
     axios
-      .get(URL, {
+      .get(`${URL}/trips`, {
         headers: { user_id: userIdString },
       })
       .then((response) => {
@@ -54,7 +55,7 @@ function Trips(props: any) {
   const addTrip = (tripInfo: any) => {
     const userIdString = props.userId;
     axios
-      .post(URL, tripInfo, {
+      .post(`${URL}/trips`, tripInfo, {
         headers: { user_id: userIdString },
       })
       .then((response) => {
@@ -73,7 +74,7 @@ function Trips(props: any) {
 
   const deleteTrip = (tripId: string) => {
     axios
-      .delete(`${URL}/${tripId}`)
+      .delete(`${URL}/trips/${tripId}`)
       .then((response) => {
         console.log(response);
         getTrips();
