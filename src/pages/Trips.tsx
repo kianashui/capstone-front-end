@@ -7,7 +7,6 @@ import TripSummary from "../components/TripSummary";
 import TripForm from "../components/TripForm";
 import DeleteTripForm from "../components/DeleteTripForm";
 import "./Trips.css";
-// import { UserId } from "../components/Profile";
 
 function Trips(props: any) {
   const [tripFormActive, setTripFormActive] = useState(false);
@@ -53,9 +52,6 @@ function Trips(props: any) {
   };
 
   const addTrip = (tripInfo: any) => {
-    console.log("add trip");
-    console.log(tripInfo);
-    // const userId: string = process.env.REACT_APP_USER_ID as string;
     const userIdString = props.userId;
     axios
       .post(URL, tripInfo, {
@@ -137,7 +133,6 @@ function Trips(props: any) {
   return (
     <div className="trips">
       <h1>Trips</h1>
-
       <TripForm
         addTripCallback={addTrip}
         showTripFormCallback={showTripForm}

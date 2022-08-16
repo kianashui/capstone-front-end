@@ -2,11 +2,6 @@
   display: block;
 }
 
-#itinerary-entry-components::before {
-  /* content: "\a"; */
-  white-space: break-spaces;
-}
-
 .itinerary-entry-list {
   background-color: #cecece;
   border-radius: 1rem;

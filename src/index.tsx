@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-// import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 
@@ -13,11 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Router>
-      <Auth0ProviderWithHistory
-      // domain="capstone-trip-planner.us.auth0.com"
-      // clientId="WHwpqLgdrQ21bVGOX4W0gmOh2j5hs6tr"
-      // redirectUri={window.location.origin}
-      >
+      <Auth0ProviderWithHistory>
         <App />
       </Auth0ProviderWithHistory>
     </Router>

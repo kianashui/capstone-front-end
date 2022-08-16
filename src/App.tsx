@@ -1,3 +1,4 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -9,7 +10,6 @@ import More from "./pages/More";
 import Loading from "./components/Loading";
 import Logout from "./pages/Logout";
 import "./App.css";
-import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ function App() {
     setLoading(false);
   };
 
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   const [userId, setUserId] = useState("");
 
   const changeUserId = () => {

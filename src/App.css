@@ -11,6 +11,7 @@
 .more {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   height: 90vh;
   align-items: top; /*vertical alignment*/
   margin: 25px 25px 40px 25px; /*margin: top right bottom left*/
@@ -22,12 +23,10 @@
   margin: 25px 25px 40px 25px;
 }
 
-.home h1 {
-  color: #706f6f;
-}
-
-.trips h1 {
-  /* color: #f391a0; */
+.home h1,
+.trips h1,
+.account-settings h1,
+.more h1 {
   color: #706f6f;
 }
 

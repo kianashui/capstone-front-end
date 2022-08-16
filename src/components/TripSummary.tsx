@@ -1,7 +1,5 @@
 import moment from "moment";
-// import {useState} from "react";
 import * as RiIcons from "react-icons/ri";
-// import DeleteTripForm from "./DeleteTripForm";
 import "./TripSummary.css";
 
 function TripSummary(props: any) {

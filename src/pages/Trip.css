@@ -1,7 +1,3 @@
-/* .trip {
-  background-color: red;
-} */
-
 .trip__back-to-trips-button {
   text-decoration: none;
   color: #000000;
@@ -10,12 +6,9 @@
 }
 
 .trip__back-to-trips-button:hover {
-  /* background-color: #00008b; */
-  /* color: #ffffff; */
   color: #706f6f;
 }
 
 .trip__back-to-trips-button span {
-  /* background-color: blue; */
   margin: 2px;
 }

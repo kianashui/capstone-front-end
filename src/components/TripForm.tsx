@@ -1,14 +1,24 @@
+import moment from "moment-timezone";
 import { useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import "./TripForm.css";
-import moment from "moment-timezone";
 
 function TripForm(props: any) {
   // set default form to empty form and disable submit
   const defaultTripForm = {
     name: "",
-    start_date: "",
-    end_date: "",
+    start_date: moment
+      .tz(
+        new Date().setHours(0, 0, 0, 0),
+        Intl.DateTimeFormat().resolvedOptions().timeZone
+      )
+      .format(),
+    end_date: moment
+      .tz(
+        new Date().setHours(0, 0, 0, 0),
+        Intl.DateTimeFormat().resolvedOptions().timeZone
+      )
+      .format(),
   };
 
   const [tripFormData, setTripFormData] = useState(defaultTripForm);
@@ -81,7 +91,6 @@ function TripForm(props: any) {
         type="date"
         name="start_date"
         placeholder="Start Date"
-        // value={tripFormData.start_date.toString()}
         value={moment(tripFormData.start_date).format("YYYY-MM-DD")}
         onChange={onFormChange}
       ></input>
@@ -91,7 +100,6 @@ function TripForm(props: any) {
         type="date"
         name="end_date"
         placeholder="End Date"
-        // value={tripFormData.end_date.toString()}
         value={moment(tripFormData.end_date).format("YYYY-MM-DD")}
         onChange={onFormChange}
       ></input>

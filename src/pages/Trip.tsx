@@ -5,7 +5,6 @@ import * as TiIcons from "react-icons/ti";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ItineraryEntries from "../components/ItineraryEntries";
-import DeleteItineraryEntryForm from "../components/DeleteItineraryEntryForm";
 import "./Trip.css";
 
 function Trip(props: any) {
@@ -21,7 +20,6 @@ function Trip(props: any) {
   const URL = "https://capstone-trip-planner.herokuapp.com/trips";
 
   const getOneTrip = () => {
-    // const userId: string = process.env.REACT_APP_USER_ID as string;
     const userIdString = props.userId;
     if (tripId !== "" && userIdString !== "") {
       axios
@@ -43,6 +41,7 @@ function Trip(props: any) {
   };
 
   useEffect(getOneTrip, [tripId, props.userId]);
+
   return (
     <div className="trip">
       <Link to="/trips" className="trip__back-to-trips-button">
@@ -56,11 +55,6 @@ function Trip(props: any) {
         {moment(trip.start_date).format("ddd, MMMM D, YYYY")} -{" "}
         {moment(trip.end_date).format("ddd, MMMM D, YYYY")}
       </h2>
-      {/* <TripForm
-        addTripCallback={addTrip}
-        showTripFormCallback={showTripForm}
-        tripFormActive={tripFormActive}
-  ></TripForm>*/}
       <ItineraryEntries trip_id={trip._id} userId={props.userId} />
     </div>
   );

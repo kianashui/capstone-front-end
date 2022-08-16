@@ -3,16 +3,15 @@ const Profile = (props: any) => {
     <div>
       {props.user !== undefined && (
         <div>
-          {/* <UserFirstName user={props.user}/> */}
-          <p className="user__given-name">
+          <div className="user__given-name">
             First Name: <UserFirstName user={props.user} />
-          </p>
-          <p className="user__family-name">
+          </div>
+          <div className="user__family-name">
             Last Name: <UserLastName user={props.user} />
-          </p>
-          <p className="user__email">
+          </div>
+          <div className="user__email">
             Email: <UserEmail user={props.user} />
-          </p>
+          </div>
         </div>
       )}
     </div>

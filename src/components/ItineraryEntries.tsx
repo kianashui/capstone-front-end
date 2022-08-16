@@ -28,7 +28,6 @@ function ItineraryEntries(props: any) {
   };
 
   const getItineraryEntries = () => {
-    // const userId: string = process.env.REACT_APP_USER_ID as string;
     const userIdString = props.userId;
     if (tripId !== "") {
       axios
@@ -59,9 +58,6 @@ function ItineraryEntries(props: any) {
   useEffect(getItineraryEntries, [tripId, props.userId]);
 
   const addItineraryEntry = (entryInfo: any) => {
-    console.log("add itinerary entry");
-    console.log(entryInfo);
-    // const userId: string = process.env.REACT_APP_USER_ID as string;
     const userIdString = props.userId;
     axios
       .post(`${URL}/trips/${tripId}/itinerary_entries`, entryInfo, {

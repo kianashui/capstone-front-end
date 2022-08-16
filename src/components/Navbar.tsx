@@ -9,14 +9,6 @@ import LogoutButton from "./LogoutButton";
 import { UserFirstName } from "./Profile";
 import "./Navbar.css";
 
-// const handleClick = (event: any) => {
-//   // event.preventDefault();
-//   if (event.target.innerText === "Logout") {
-//     // log out logic if logout is clicked
-//     // Logout();
-//   }
-// };
-
 const sidebarData = [
   {
     title: "Home",

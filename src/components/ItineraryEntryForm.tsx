@@ -7,8 +7,12 @@ function ItineraryEntryForm(props: any) {
   // set default form to empty form and disable submit
   const defaultItineraryEntryForm = {
     name: "",
-    start_time: "",
-    end_time: "",
+    start_time: moment
+      .tz(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone)
+      .format(),
+    end_time: moment
+      .tz(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone)
+      .format(),
     activity_type: "",
     price: 0,
     location: "",
@@ -37,7 +41,6 @@ function ItineraryEntryForm(props: any) {
     const newFormData: any = { ...itineraryEntryFormData };
     newFormData[stateName] = inputValue;
     setitineraryEntryFormData(newFormData);
-    console.log(newFormData);
 
     // if required fields have not been filled out or start time is after end time, disable submitting
     if (
