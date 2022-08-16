@@ -26,9 +26,6 @@ function Trips(props: any) {
   };
 
   const getTrips = () => {
-    // userIdString
-    // const userIdString: string = process.env.REACT_APP_USER_ID as string;
-    // const userIdString = UserId();
     const userIdString = props.userId;
     axios
       .get(URL, {
@@ -51,6 +48,7 @@ function Trips(props: any) {
       })
       .catch((err) => {
         console.log(err);
+        props.loadingCallback();
       });
   };
 
@@ -134,7 +132,7 @@ function Trips(props: any) {
     );
   });
 
-  useEffect(getTrips, []);
+  useEffect(getTrips, [props.userId]);
 
   return (
     <div className="trips">

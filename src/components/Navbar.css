@@ -82,3 +82,15 @@
 span {
   margin-left: 16px;
 }
+
+.navbar-user-greeting {
+  color: #2f4f4f;
+  border-radius: 0.5rem;
+  border-style: none;
+  margin: 0.5rem;
+  padding: 5px;
+  font-size: 1rem;
+  position: absolute;
+  right: 0;
+  margin-right: 100px;
+}

@@ -6,6 +6,7 @@ import { IconContext } from "react-icons";
 import { Link } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
+import { UserFirstName } from "./Profile";
 import "./Navbar.css";
 
 // const handleClick = (event: any) => {
@@ -49,7 +50,7 @@ const sidebarData = [
   },
 ];
 
-function Navbar() {
+function Navbar(props: any) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const { isAuthenticated } = useAuth0();
@@ -61,6 +62,13 @@ function Navbar() {
           <Link to="#" className="menu-bars">
             <AiIcons.AiOutlineMenu onClick={showSidebar} />
           </Link>
+          {isAuthenticated ? (
+            <div className="navbar-user-greeting">
+              Welcome, <UserFirstName user={props.user} />
+            </div>
+          ) : (
+            <></>
+          )}
           {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>

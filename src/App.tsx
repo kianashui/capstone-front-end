@@ -14,10 +14,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
-  }, []);
-
   const setLoadingStateFalse = () => {
     setLoading(false);
   };
@@ -35,39 +31,63 @@ function App() {
   useEffect(changeUserId, [user, isAuthenticated]);
 
   return (
-    <>
+    <div className="App">
       {loading ? (
-        <Loading />
-      ) : (
-        <div className="App">
-          <main>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home userId={userId} />} />
-              <Route
-                path="/trips"
-                element={
-                  <Trips
-                    userId={userId}
-                    loadingCallback={setLoadingStateFalse}
-                  />
-                }
-              />
-              <Route path="/trips/:tripId" element={<Trip userId={userId} />} />
-              <Route
-                path="/settings"
-                element={<AccountSettings userId={userId} />}
-              />
-              <Route path="/more" element={<More userId={userId} />} />
-              <Route path="/logout" element={<Logout />} />
-            </Routes>
-          </main>
-          <footer>
-            <p> &copy;2022, Kiana Shui</p>
-          </footer>
+        <div>
+          <Loading loadingActive={loading} />
         </div>
+      ) : (
+        <></>
       )}
-    </>
+
+      <main>
+        <Navbar user={user} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                userId={userId}
+                user={user}
+                loadingCallback={setLoadingStateFalse}
+              />
+            }
+          />
+          <Route
+            path="/trips"
+            element={
+              <Trips userId={userId} loadingCallback={setLoadingStateFalse} />
+            }
+          />
+          <Route
+            path="/trips/:tripId"
+            element={
+              <Trip userId={userId} loadingCallback={setLoadingStateFalse} />
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <AccountSettings
+                userId={userId}
+                user={user}
+                loadingCallback={setLoadingStateFalse}
+              />
+            }
+          />
+          <Route
+            path="/more"
+            element={
+              <More userId={userId} loadingCallback={setLoadingStateFalse} />
+            }
+          />
+          <Route path="/logout" element={<Logout />} />
+        </Routes>
+      </main>
+      <footer>
+        <p> &copy;2022, Kiana Shui</p>
+      </footer>
+    </div>
   );
 }
 

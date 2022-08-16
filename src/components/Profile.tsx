@@ -1,73 +1,49 @@
-// import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-
-const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-
+const Profile = (props: any) => {
   return (
     <div>
-      {user !== undefined && isAuthenticated && (
+      {props.user !== undefined && (
         <div>
-          {/* <img src={user.picture} alt={user.name} /> */}
-          <h2 className="user__name">{user.name}</h2>
-          <h2 className="user__given-name">{user.given_name}</h2>
-          <h2 className="user__family-name">{user.family_name}</h2>
-          <p className="user__user-id">{user.sub}</p>
-          <p className="user__email">{user.email}</p>
-          {/* <img src={user.picture} alt="user" /> */}
+          {/* <UserFirstName user={props.user}/> */}
+          <p className="user__given-name">
+            First Name: <UserFirstName user={props.user} />
+          </p>
+          <p className="user__family-name">
+            Last Name: <UserLastName user={props.user} />
+          </p>
+          <p className="user__email">
+            Email: <UserEmail user={props.user} />
+          </p>
         </div>
       )}
     </div>
   );
 };
 
-const UserFirstName = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-
+const UserFirstName = (props: any) => {
   return (
     <>
-      {user !== undefined && isAuthenticated && (
-        <div className="user__given-name">{user.given_name}</div>
+      {props.user !== undefined && (
+        <p className="user__first-name">{props.user.given_name}</p>
       )}
     </>
   );
 };
 
-const UserLastName = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-
+const UserLastName = (props: any) => {
   return (
     <>
-      {user !== undefined && isAuthenticated && (
-        <p className="user__family-name">{user.family_name}</p>
+      {props.user !== undefined && (
+        <p className="user__last-name">{props.user.family_name}</p>
       )}
     </>
   );
 };
 
-const UserEmail = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-
+const UserEmail = (props: any) => {
   return (
     <>
-      {user !== undefined && isAuthenticated && (
-        <p className="user__email">{user.email}</p>
+      {props.user !== undefined && (
+        <p className="user__email">{props.user.email}</p>
       )}
     </>
   );

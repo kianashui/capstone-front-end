@@ -10,6 +10,7 @@
 .account-settings,
 .more {
   display: flex;
+  flex-wrap: wrap;
   height: 90vh;
   align-items: top; /*vertical alignment*/
   margin: 25px 25px 40px 25px; /*margin: top right bottom left*/
@@ -21,13 +22,13 @@
   margin: 25px 25px 40px 25px;
 }
 
-.home {
-  background-color: purple;
+.home h1 {
+  color: #706f6f;
 }
 
 .trips h1 {
-  color: #f391a0;
-  /* color: #706F6F; */
+  /* color: #f391a0; */
+  color: #706f6f;
 }
 
 footer {

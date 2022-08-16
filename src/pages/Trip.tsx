@@ -32,8 +32,12 @@ function Trip(props: any) {
           const tripData = response.data[0];
           setTrip(tripData);
         })
+        .finally(() => {
+          props.loadingCallback();
+        })
         .catch((err) => {
           console.log(err);
+          props.loadingCallback();
         });
     }
   };
