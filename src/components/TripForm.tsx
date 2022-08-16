@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as AiIcons from "react-icons/ai";
 import "./TripForm.css";
+import moment from "moment-timezone";
 
 function TripForm(props: any) {
   // set default form to empty form and disable submit
@@ -16,7 +17,14 @@ function TripForm(props: any) {
   const onFormChange = (event: any) => {
     // get info from form about changed data
     const stateName: any = event.target.name;
-    const inputValue: any = event.target.value;
+    let inputValue: any = event.target.value;
+
+    if (stateName === "start_date" || stateName === "end_date") {
+      // add current user's timezone so time doesn't enter back end as time agnostic/UTC time
+      inputValue = moment
+        .tz(inputValue, Intl.DateTimeFormat().resolvedOptions().timeZone)
+        .format();
+    }
 
     // replace form data
     const newFormData: any = { ...tripFormData };
@@ -59,7 +67,7 @@ function TripForm(props: any) {
         onClick={closeForm}
       />
       <h2>Add a New Trip</h2>
-      {/* <label htmlFor="trip name">Trip Name</label> */}
+      <label htmlFor="name">Trip Name</label>
       <input
         type="text"
         name="name"
@@ -73,7 +81,8 @@ function TripForm(props: any) {
         type="date"
         name="start_date"
         placeholder="Start Date"
-        value={tripFormData.start_date.toString()}
+        // value={tripFormData.start_date.toString()}
+        value={moment(tripFormData.start_date).format("YYYY-MM-DD")}
         onChange={onFormChange}
       ></input>
       <br />
@@ -82,7 +91,8 @@ function TripForm(props: any) {
         type="date"
         name="end_date"
         placeholder="End Date"
-        value={tripFormData.end_date.toString()}
+        // value={tripFormData.end_date.toString()}
+        value={moment(tripFormData.end_date).format("YYYY-MM-DD")}
         onChange={onFormChange}
       ></input>
       <input

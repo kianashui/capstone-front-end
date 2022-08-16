@@ -13,7 +13,6 @@ function ItineraryEntryForm(props: any) {
     price: 0,
     location: "",
     notes: "",
-    // attachment_file: "",
   };
 
   const [itineraryEntryFormData, setitineraryEntryFormData] = useState(
@@ -26,8 +25,10 @@ function ItineraryEntryForm(props: any) {
     const stateName: any = event.target.name;
     let inputValue: any = event.target.value;
     if (stateName === "price") {
+      // convert price to a number
       inputValue = Number(inputValue);
     } else if (stateName === "start_time" || stateName === "end_time") {
+      // add current user's timezone so time doesn't enter back end as time agnostic/UTC time
       inputValue = moment
         .tz(inputValue, Intl.DateTimeFormat().resolvedOptions().timeZone)
         .format();
@@ -99,7 +100,6 @@ function ItineraryEntryForm(props: any) {
         type="datetime-local"
         name="start_time"
         placeholder="Start Time"
-        // value={itineraryEntryFormData.start_time.toString()}
         value={moment(itineraryEntryFormData.start_time).format(
           "YYYY-MM-DDTHH:mm"
         )}
@@ -110,7 +110,6 @@ function ItineraryEntryForm(props: any) {
         type="datetime-local"
         name="end_time"
         placeholder="End Time"
-        // value={itineraryEntryFormData.end_time.toString()}
         value={moment(itineraryEntryFormData.end_time).format(
           "YYYY-MM-DDTHH:mm"
         )}
@@ -121,7 +120,6 @@ function ItineraryEntryForm(props: any) {
         name="activity_type"
         required
         value={itineraryEntryFormData.activity_type}
-        // defaultValue={""}
         onChange={onFormChange}
       >
         <option value="">--Choose Activity Type--</option>
@@ -156,13 +154,6 @@ function ItineraryEntryForm(props: any) {
         value={itineraryEntryFormData.notes}
         onChange={onFormChange}
       ></input>
-      {/* <input
-        type="file"
-        name="attachment_file"
-        placeholder="Attach a File"
-        value={itineraryEntryFormData.attachment_file}
-        onChange={onFormChange}
-      ></input> */}
       <input
         id="itinerary-entry-form-submit-button"
         type="submit"

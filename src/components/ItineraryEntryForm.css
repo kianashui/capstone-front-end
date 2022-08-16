@@ -15,7 +15,12 @@
   left: 50px;
   visibility: hidden;
   z-index: 1000;
-  /* display: block; */
+}
+
+.itinerary-entry-form h2 {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .itinerary-entry-form input,
@@ -33,6 +38,7 @@
 
 .itinerary-entry-form label {
   color: #706f6f;
+  margin-left: 0.5rem;
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.8rem;
