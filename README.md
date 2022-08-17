@@ -41,4 +41,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ### Deployment
 
-This app has been deployed at https://trip-planner-capstone.herokuapp.com/.
+This app has been deployed at https://trip-planner-capstone.herokuapp.com/
