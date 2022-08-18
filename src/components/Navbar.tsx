@@ -9,43 +9,47 @@ import LogoutButton from "./LogoutButton";
 import { UserFirstName } from "./Profile";
 import "./Navbar.css";
 
-const sidebarData = [
-  {
-    title: "Home",
-    path: "/",
-    icon: <AiIcons.AiFillHome />,
-    cName: "nav-text",
-  },
-  {
-    title: "Trips",
-    path: "/trips",
-    icon: <RiIcons.RiPlaneFill />,
-    cName: "nav-text",
-  },
-  {
-    title: "Account Settings",
-    path: "/settings",
-    icon: <RiIcons.RiUserSettingsFill />,
-    cName: "nav-text",
-  },
-  {
-    title: "More",
-    path: "/more",
-    icon: <RiIcons.RiMoreFill />,
-    cName: "nav-text",
-  },
-  {
-    title: "Logout",
-    path: "/logout",
-    icon: <RiIcons.RiLogoutBoxLine />,
-    cName: "nav-text",
-  },
-];
-
 function Navbar(props: any) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const { isAuthenticated } = useAuth0();
+  const sidebarData = [
+    {
+      title: "Home",
+      path: "/",
+      icon: <AiIcons.AiFillHome />,
+      cName: "nav-text",
+      loggedIn: true,
+    },
+    {
+      title: "Trips",
+      path: "/trips",
+      icon: <RiIcons.RiPlaneFill />,
+      cName: "nav-text",
+      loggedIn: isAuthenticated,
+    },
+    {
+      title: "Account Settings",
+      path: "/settings",
+      icon: <RiIcons.RiUserSettingsFill />,
+      cName: "nav-text",
+      loggedIn: isAuthenticated,
+    },
+    {
+      title: "More",
+      path: "/more",
+      icon: <RiIcons.RiMoreFill />,
+      cName: "nav-text",
+      loggedIn: isAuthenticated,
+    },
+    {
+      title: "Logout",
+      path: "/logout",
+      icon: <RiIcons.RiLogoutBoxLine />,
+      cName: "nav-text",
+      loggedIn: isAuthenticated,
+    },
+  ];
 
   return (
     <div>
@@ -71,14 +75,18 @@ function Navbar(props: any) {
               </Link>
             </li>
             {sidebarData.map((item, index) => {
-              return (
-                <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
+              if (item.loggedIn) {
+                return (
+                  <li key={index} className={item.cName}>
+                    <Link to={item.path}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                );
+              } else {
+                return <></>;
+              }
             })}
           </ul>
         </nav>
